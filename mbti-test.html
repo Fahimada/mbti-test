@@ -1,0 +1,131 @@
+
+<!DOCTYPE html>
+<html lang="fa" dir="rtl">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>تست شخصیت شناسی MBTI</title>
+  <style>
+    body {
+      font-family: sans-serif;
+      background-color: #fff;
+      color: #333;
+      max-width: 700px;
+      margin: auto;
+      padding: 20px;
+      direction: rtl;
+    }
+    .question-box {
+      display: none;
+      margin-bottom: 20px;
+    }
+    .question-box.active {
+      display: block;
+    }
+    .question-text {
+      font-size: 20px;
+      margin-bottom: 20px;
+    }
+    .btn {
+      background-color: #e91e63;
+      color: white;
+      border: none;
+      padding: 10px 20px;
+      margin: 5px;
+      font-size: 16px;
+      cursor: pointer;
+      border-radius: 8px;
+    }
+    .btn:hover {
+      background-color: #c2185b;
+    }
+    #result {
+      display: none;
+      font-size: 22px;
+      margin-top: 40px;
+      padding: 20px;
+      background-color: #f3f3f3;
+      border-radius: 12px;
+    }
+    a.button-link {
+      display: inline-block;
+      margin-top: 10px;
+      background-color: #000;
+      color: #fff;
+      padding: 10px 20px;
+      text-decoration: none;
+      border-radius: 6px;
+    }
+  </style>
+</head>
+<body>
+  <h1>تست شخصیت شناسی MBTI</h1>
+  <div id="quiz-container"></div>
+  <div id="result"></div>
+
+  <script>
+    const questions = [
+      { text: "در موقعیت‌های اجتماعی، انرژی می‌گیری یا خسته می‌شی؟", type: "E" },
+      { text: "آیا ترجیح می‌دی اول فکر کنی بعد صحبت کنی؟", type: "I" },
+      { text: "آیا بیشتر به واقعیت توجه داری تا فرضیه‌ها؟", type: "S" },
+      { text: "آیا با مفاهیم و ایده‌های انتزاعی ارتباط خوبی داری؟", type: "N" },
+      { text: "در تصمیم‌گیری، به منطق بیشتر اعتماد داری؟", type: "T" },
+      { text: "آیا احساسات دیگران رو در تصمیم‌هات در نظر می‌گیری؟", type: "F" },
+      { text: "آیا نظم و برنامه‌ریزی رو به انعطاف ترجیح می‌دی؟", type: "J" },
+      { text: "آیا به تغییر برنامه‌ها راحت‌تر کنار میای؟", type: "P" }
+    ];
+
+    const scores = { E: 0, I: 0, S: 0, N: 0, T: 0, F: 0, J: 0, P: 0 };
+    let current = 0;
+
+    const container = document.getElementById("quiz-container");
+    const resultBox = document.getElementById("result");
+
+    function showQuestion(index) {
+      container.innerHTML = "";
+      if (index >= questions.length) {
+        showResult();
+        return;
+      }
+      const q = questions[index];
+      const box = document.createElement("div");
+      box.className = "question-box active";
+      box.innerHTML = `
+        <div class="question-text">${q.text}</div>
+        <button class="btn" onclick="answer('${q.type}')">بله</button>
+        <button class="btn" onclick="next()">خیر</button>
+      `;
+      container.appendChild(box);
+    }
+
+    function answer(type) {
+      scores[type]++;
+      next();
+    }
+
+    function next() {
+      current++;
+      showQuestion(current);
+    }
+
+    function showResult() {
+      let result = "";
+      result += scores["E"] >= scores["I"] ? "E" : "I";
+      result += scores["S"] >= scores["N"] ? "S" : "N";
+      result += scores["T"] >= scores["F"] ? "T" : "F";
+      result += scores["J"] >= scores["P"] ? "J" : "P";
+
+      let faTitle = "فرمانده (ENTJ)";
+      let link = "https://designer-sho.com/shop/types/P45609-ENTJ.html";
+
+      resultBox.innerHTML = `
+        <p>نتیجه تست شما: <strong>${result}</strong> – ${faTitle}</p>
+        <a class="button-link" href="${link}" target="_blank">مشاهده کتابک مربوط به این تیپ</a>
+      `;
+      resultBox.style.display = "block";
+    }
+
+    showQuestion(current);
+  </script>
+</body>
+</html>
