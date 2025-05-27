@@ -1,131 +1,124 @@
-
 <!DOCTYPE html>
 <html lang="fa" dir="rtl">
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>تست شخصیت شناسی MBTI</title>
+  <title>تست شخصیت‌شناسی MBTI</title>
   <style>
     body {
-      font-family: sans-serif;
-      background-color: #fff;
-      color: #333;
-      max-width: 700px;
+      font-family: 'IRANYekan', sans-serif;
+      max-width: 720px;
       margin: auto;
-      padding: 20px;
+      padding: 24px;
+      background: #fff;
+      color: #333;
       direction: rtl;
+      line-height: 1.8;
     }
-    .question-box {
-      display: none;
-      margin-bottom: 20px;
-    }
-    .question-box.active {
-      display: block;
-    }
-    .question-text {
-      font-size: 20px;
-      margin-bottom: 20px;
-    }
-    .btn {
-      background-color: #e91e63;
-      color: white;
-      border: none;
-      padding: 10px 20px;
-      margin: 5px;
-      font-size: 16px;
+    h1 { text-align: center; color: #e91e63; }
+    .question { margin-top: 48px; }
+    .options { display: flex; justify-content: space-between; margin-top: 12px; }
+    .option {
+      flex: 1;
+      text-align: center;
+      padding: 8px;
+      margin: 0 4px;
+      border-radius: 50%;
       cursor: pointer;
-      border-radius: 8px;
+      background: #eee;
+      transition: 0.2s;
     }
-    .btn:hover {
-      background-color: #c2185b;
-    }
-    #result {
-      display: none;
-      font-size: 22px;
-      margin-top: 40px;
-      padding: 20px;
-      background-color: #f3f3f3;
-      border-radius: 12px;
-    }
-    a.button-link {
-      display: inline-block;
-      margin-top: 10px;
-      background-color: #000;
-      color: #fff;
-      padding: 10px 20px;
-      text-decoration: none;
-      border-radius: 6px;
-    }
+    .option:hover { background: #e91e63; color: #fff; }
+    .active { background: #e91e63 !important; color: #fff; }
+    #submit { margin-top: 48px; display: block; width: 100%; padding: 16px; background: #000; color: #fff; border: none; border-radius: 8px; font-size: 18px; cursor: pointer; }
+    #result { display: none; margin-top: 48px; padding: 24px; background: #f6f6f6; border-radius: 12px; }
+    .link { display: inline-block; margin-top: 12px; padding: 10px 20px; background: #000; color: #fff; text-decoration: none; border-radius: 6px; }
   </style>
 </head>
 <body>
-  <h1>تست شخصیت شناسی MBTI</h1>
-  <div id="quiz-container"></div>
+  <h1>تست شخصیت‌شناسی MBTI</h1>
+  <div id="form"></div>
+  <button id="submit" onclick="calculateResult()">مشاهده نتیجه</button>
   <div id="result"></div>
 
   <script>
     const questions = [
-      { text: "در موقعیت‌های اجتماعی، انرژی می‌گیری یا خسته می‌شی؟", type: "E" },
-      { text: "آیا ترجیح می‌دی اول فکر کنی بعد صحبت کنی؟", type: "I" },
-      { text: "آیا بیشتر به واقعیت توجه داری تا فرضیه‌ها؟", type: "S" },
-      { text: "آیا با مفاهیم و ایده‌های انتزاعی ارتباط خوبی داری؟", type: "N" },
-      { text: "در تصمیم‌گیری، به منطق بیشتر اعتماد داری؟", type: "T" },
-      { text: "آیا احساسات دیگران رو در تصمیم‌هات در نظر می‌گیری؟", type: "F" },
-      { text: "آیا نظم و برنامه‌ریزی رو به انعطاف ترجیح می‌دی؟", type: "J" },
-      { text: "آیا به تغییر برنامه‌ها راحت‌تر کنار میای؟", type: "P" }
+      { text: "شما از گذراندن وقت به تنهایی لذت می‌برید.", dim: "EI", weight: -1 },
+      { text: "ترجیح می‌دهید درباره واقعیت‌های ملموس صحبت کنید تا نظریه‌های انتزاعی.", dim: "SN", weight: 1 },
+      { text: "در تصمیم‌گیری به احساسات دیگران توجه زیادی دارید.", dim: "TF", weight: -1 },
+      { text: "برنامه‌ریزی و ساختار را به انعطاف‌پذیری ترجیح می‌دهید.", dim: "JP", weight: 1 }
     ];
+    const dimensions = { E: 0, I: 0, S: 0, N: 0, T: 0, F: 0, J: 0, P: 0 };
+    const values = [-3, -2, -1, 0, 1, 2, 3];
 
-    const scores = { E: 0, I: 0, S: 0, N: 0, T: 0, F: 0, J: 0, P: 0 };
-    let current = 0;
+    questions.forEach((q, index) => {
+      const container = document.getElementById("form");
+      const div = document.createElement("div");
+      div.className = "question";
+      div.innerHTML = `<p><strong>${index + 1}. </strong>${q.text}</p>`;
+      const opt = document.createElement("div");
+      opt.className = "options";
+      values.forEach((val, i) => {
+        const b = document.createElement("div");
+        b.className = "option";
+        b.innerText = val > 0 ? "موافقم".repeat(val) : val < 0 ? "مخالفم".repeat(-val) : "بی‌تفاوتم";
+        b.dataset.val = val;
+        b.onclick = () => {
+          Array.from(opt.children).forEach(c => c.classList.remove("active"));
+          b.classList.add("active");
+          q.selected = val;
+        };
+        opt.appendChild(b);
+      });
+      div.appendChild(opt);
+      container.appendChild(div);
+    });
 
-    const container = document.getElementById("quiz-container");
-    const resultBox = document.getElementById("result");
+    function calculateResult() {
+      questions.forEach(q => {
+        const val = q.selected || 0;
+        const dim = q.dim;
+        if (val * q.weight > 0) dimensions[dim[0]] += Math.abs(val);
+        else if (val * q.weight < 0) dimensions[dim[1]] += Math.abs(val);
+      });
+      const result =
+        (dimensions.E >= dimensions.I ? "E" : "I") +
+        (dimensions.S >= dimensions.N ? "S" : "N") +
+        (dimensions.T >= dimensions.F ? "T" : "F") +
+        (dimensions.J >= dimensions.P ? "J" : "P");
 
-    function showQuestion(index) {
-      container.innerHTML = "";
-      if (index >= questions.length) {
-        showResult();
-        return;
-      }
-      const q = questions[index];
-      const box = document.createElement("div");
-      box.className = "question-box active";
-      box.innerHTML = `
-        <div class="question-text">${q.text}</div>
-        <button class="btn" onclick="answer('${q.type}')">بله</button>
-        <button class="btn" onclick="next()">خیر</button>
+      const titles = {
+        ENTJ: "فرمانده", INTJ: "معمار", INTP: "منطق‌گرا", ENTP: "مبتکر",
+        ENFJ: "رهبری‌کننده", INFP: "آرمان‌گرا", INFJ: "مشاور", ENFP: "حامی",
+        ISTJ: "بازرس", ISFJ: "مدافع", ESTJ: "مدیر", ESFJ: "حامی اجتماعی",
+        ISTP: "عمل‌گرا", ISFP: "هنرمند", ESTP: "ماجراجو", ESFP: "سرگرم‌کننده"
+      };
+      const links = {
+        ENTJ: "https://designer-sho.com/shop/types/P45609-ENTJ.html",
+        INTJ: "https://designer-sho.com/shop/types/P45616-INTJ.html",
+        INTP: "https://designer-sho.com/shop/types/P45617-INTP.html",
+        ENTP: "https://designer-sho.com/shop/types/P45610-ENTP.html",
+        ENFJ: "https://designer-sho.com/shop/types/P45607-enfj.html",
+        INFP: "https://designer-sho.com/shop/types/P45613-INFP.html",
+        INFJ: "https://designer-sho.com/shop/types/P45612-INFJ.html",
+        ENFP: "https://designer-sho.com/shop/types/P45608-ENFP.html",
+        ISTJ: "https://designer-sho.com/shop/types/P45620-ISTJ.html",
+        ISFJ: "https://designer-sho.com/shop/types/P45621-ISFJ.html",
+        ESTJ: "https://designer-sho.com/shop/types/P45622-ESTJ.html",
+        ESFJ: "https://designer-sho.com/shop/types/P45623-ESFJ.html",
+        ISTP: "https://designer-sho.com/shop/types/P45619-ISTP.html",
+        ISFP: "https://designer-sho.com/shop/types/P45625-ISFP.html",
+        ESTP: "https://designer-sho.com/shop/types/P45626-ESTP.html",
+        ESFP: "https://designer-sho.com/shop/types/P45624-ESFP.html"
+      };
+
+      document.getElementById("result").style.display = "block";
+      document.getElementById("result").innerHTML = `
+        <h2>نتیجه تست شما: ${result} – ${titles[result]}</h2>
+        <a href="${links[result]}" class="link" target="_blank">مشاهده کتابک مخصوص این تیپ</a>
       `;
-      container.appendChild(box);
+      window.scrollTo({ top: document.body.scrollHeight, behavior: 'smooth' });
     }
-
-    function answer(type) {
-      scores[type]++;
-      next();
-    }
-
-    function next() {
-      current++;
-      showQuestion(current);
-    }
-
-    function showResult() {
-      let result = "";
-      result += scores["E"] >= scores["I"] ? "E" : "I";
-      result += scores["S"] >= scores["N"] ? "S" : "N";
-      result += scores["T"] >= scores["F"] ? "T" : "F";
-      result += scores["J"] >= scores["P"] ? "J" : "P";
-
-      let faTitle = "فرمانده (ENTJ)";
-      let link = "https://designer-sho.com/shop/types/P45609-ENTJ.html";
-
-      resultBox.innerHTML = `
-        <p>نتیجه تست شما: <strong>${result}</strong> – ${faTitle}</p>
-        <a class="button-link" href="${link}" target="_blank">مشاهده کتابک مربوط به این تیپ</a>
-      `;
-      resultBox.style.display = "block";
-    }
-
-    showQuestion(current);
   </script>
 </body>
 </html>
