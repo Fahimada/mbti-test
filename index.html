@@ -1,87 +1,147 @@
+
 <!DOCTYPE html>
 <html lang="fa" dir="rtl">
 <head>
-  <meta charset="UTF-8" />
-  <title>تست MBTI | دیزاینر شو</title>
+  <meta charset="UTF-8">
+  <title>تست شخصیت MBTI - دیزاینر شو</title>
   <style>
     body {
-      font-family: "IRANYekan", sans-serif;
-      direction: rtl;
-      background: #fff;
+      font-family: sans-serif;
+      background-color: #fff;
       color: #333;
-      padding: 24px;
       max-width: 800px;
-      margin: auto;
+      margin: 0 auto;
+      padding: 2rem;
+      direction: rtl;
     }
     h1 {
-      color: #e91e63;
-      text-align: center;
+      color: #d81b60;
     }
     .question {
-      margin: 32px 0;
+      margin-bottom: 1.5rem;
     }
-    .options {
-      display: flex;
-      justify-content: space-between;
-      margin-top: 12px;
-    }
-    .option {
-      width: 40px;
-      height: 40px;
-      border-radius: 50%;
-      text-align: center;
-      line-height: 40px;
-      font-size: 12px;
+    .options label {
+      display: inline-block;
+      padding: 8px 12px;
+      margin: 4px;
+      border: 1px solid #ccc;
+      border-radius: 8px;
       cursor: pointer;
-      background: #eee;
-      transition: 0.3s;
     }
-    .option:hover {
-      background: #e91e63;
+    .options input[type="radio"] {
+      display: none;
+    }
+    .options input[type="radio"]:checked + label {
+      background-color: #d81b60;
       color: white;
+      border-color: #d81b60;
     }
-    .selected {
-      background: #e91e63 !important;
-      color: white;
-    }
-    #submit {
+    #submit-btn {
       background: #000;
       color: #fff;
+      padding: 12px 20px;
       border: none;
-      border-radius: 8px;
-      width: 100%;
-      padding: 16px;
-      font-size: 18px;
+      font-size: 16px;
+      margin-top: 20px;
       cursor: pointer;
-      margin-top: 32px;
+      border-radius: 8px;
     }
     #result {
-      display: none;
-      background: #f4f4f4;
-      padding: 24px;
-      margin-top: 40px;
-      border-radius: 12px;
+      margin-top: 2rem;
+      padding: 1rem;
+      border-top: 1px solid #ccc;
     }
-    .link {
+    a.book-link {
       display: inline-block;
-      margin-top: 12px;
-      padding: 10px 20px;
-      background: #000;
-      color: #fff;
-      text-decoration: none;
-      border-radius: 6px;
+      margin-top: 1rem;
+      color: #d81b60;
+      font-weight: bold;
     }
   </style>
 </head>
 <body>
-  <h1>تست شخصیت‌شناسی MBTI</h1>
-  <form id="quiz"></form>
-  <button id="submit" onclick="calculateResult(); return false;">مشاهده نتیجه</button>
+  <h1>تست شخصیت MBTI</h1>
+  <form id="quizForm"></form>
+  <button id="submit-btn">نمایش نتیجه</button>
   <div id="result"></div>
 
   <script>
-    // سؤالات دقیق و الگوریتم محاسبه به‌زودی اینجا درج می‌شود
-    document.getElementById("quiz").innerHTML = "<p>در حال آماده‌سازی سؤالات اصلی تست MBTI...</p>";
+    const questions = [
+      { text: "در مهمانی‌ها معمولاً چطور رفتار می‌کنید؟", dimension: "EI" },
+      { text: "در زمان تصمیم‌گیری، بیشتر به چه چیزی اعتماد می‌کنید؟", dimension: "TF" },
+      { text: "در برنامه‌ریزی کارها، بیشتر به چه سبک تمایل دارید؟", dimension: "JP" },
+      { text: "با مسائل جدید بیشتر چطور برخورد می‌کنید؟", dimension: "SN" }
+    ];
+
+    const options = [
+      { value: 1, label: "کاملاً مخالفم" },
+      { value: 2, label: "نسبتاً مخالفم" },
+      { value: 3, label: "کمی مخالفم" },
+      { value: 4, label: "خنثی" },
+      { value: 5, label: "کمی موافقم" },
+      { value: 6, label: "نسبتاً موافقم" },
+      { value: 7, label: "کاملاً موافقم" }
+    ];
+
+    const form = document.getElementById("quizForm");
+    questions.forEach((q, idx) => {
+      const div = document.createElement("div");
+      div.className = "question";
+      div.innerHTML = `<p><strong>سؤال ${idx + 1}:</strong> ${q.text}</p>`;
+      const optDiv = document.createElement("div");
+      optDiv.className = "options";
+      options.forEach((opt, i) => {
+        const id = `q${idx}_opt${i}`;
+        optDiv.innerHTML += `
+          <input type="radio" name="q${idx}" id="${id}" value="${opt.value}">
+          <label for="${id}">${opt.label}</label>
+        `;
+      });
+      div.appendChild(optDiv);
+      form.appendChild(div);
+    });
+
+    document.getElementById("submit-btn").addEventListener("click", function(e) {
+      e.preventDefault();
+      const answers = [];
+      for (let i = 0; i < questions.length; i++) {
+        const selected = document.querySelector(`input[name="q${i}"]:checked`);
+        if (!selected) {
+          alert("لطفاً به تمام سؤالات پاسخ دهید.");
+          return;
+        }
+        answers.push(parseInt(selected.value));
+      }
+
+      // تحلیل ساده برای تست نمایشی
+      const total = answers.reduce((a, b) => a + b, 0);
+      let result = "ENTJ";
+      if (total < 16) result = "INFP";
+      else if (total < 20) result = "INFJ";
+      else if (total < 24) result = "ENFP";
+      else if (total < 28) result = "ISFJ";
+      else result = "ENTJ";
+
+      const resultDiv = document.getElementById("result");
+      const titles = {
+        "ENTJ": "رهبر راهبردی",
+        "INFP": "ایده‌آل‌گرا",
+        "INFJ": "مشاور ژرف‌اندیش",
+        "ENFP": "انرژی‌بخش خلاق",
+        "ISFJ": "نگهبان آرام"
+      };
+      const links = {
+        "ENTJ": "https://designer-sho.com/shop/types/P45609-ENTJ.html",
+        "INFP": "https://designer-sho.com/shop/types/P45613-INFP.html",
+        "INFJ": "https://designer-sho.com/shop/types/P45612-INFJ.html",
+        "ENFP": "https://designer-sho.com/shop/types/P45608-ENFP.html",
+        "ISFJ": "https://designer-sho.com/shop/types/P45621-ISFJ.html"
+      };
+
+      resultDiv.innerHTML = `<h2>تیپ شخصیتی شما: ${result}</h2>
+      <p>${titles[result]}</p>
+      <a class="book-link" href="${links[result]}" target="_blank">مشاهده کتابک مخصوص این تیپ</a>`;
+    });
   </script>
 </body>
 </html>
