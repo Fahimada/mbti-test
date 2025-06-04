@@ -2,68 +2,73 @@
 <!DOCTYPE html>
 <html lang="fa" dir="rtl">
 <head>
-  <meta charset="UTF-8">
-  <title>تست شخصیت‌شناسی MBTI</title>
+  <meta charset="UTF-8" />
+  <title>تست MBTI</title>
   <style>
     body {
-      font-family: sans-serif;
-      background: #f9f9f9;
-      padding: 20px;
+      font-family: Tahoma, sans-serif;
+      padding: 40px;
+      background: #f7f7f7;
+    }
+    h1 {
+      text-align: center;
+      color: #cc0066;
     }
     .question {
-      background: white;
       margin-bottom: 20px;
-      padding: 15px;
+      background: white;
+      padding: 20px;
       border-radius: 8px;
-      box-shadow: 0 0 5px #ccc;
     }
     .options label {
-      margin-left: 15px;
+      margin-left: 12px;
+      margin-right: 12px;
       cursor: pointer;
     }
-    .submit-btn {
-      background-color: #d9277c;
+    button {
+      margin-top: 30px;
+      padding: 12px 30px;
+      font-size: 16px;
+      background: #cc0066;
       color: white;
-      padding: 10px 20px;
-      font-size: 18px;
       border: none;
-      border-radius: 5px;
+      border-radius: 6px;
       cursor: pointer;
     }
   </style>
 </head>
 <body>
-  <h2>تست شخصیت‌شناسی MBTI</h2>
-  <p>لطفاً به تمام 10 سؤال زیر پاسخ دهید. در پایان، تیپ شخصیتی شما نمایش داده خواهد شد.</p>
+  <h1>تست شخصیت‌شناسی MBTI</h1>
+  <p>لطفاً به تمام ۱۰ سوال زیر پاسخ دهید.</p>
+
   <form id="mbtiForm">
     <div class="question">
-      <strong>سؤال 1:</strong> شما مرتب دوستان جدیدی پیدا می‌کنید.
+      <p><strong>سوال 1:</strong> ترجیح می‌دهید زمان خالی‌تان را با دیگران بگذرانید یا به تنهایی؟</p>
       <div class="options">
-        <label><input type="radio" name="q1" value="3"> کاملاً موافقم</label>
-        <label><input type="radio" name="q1" value="2"> موافقم</label>
-        <label><input type="radio" name="q1" value="1"> نسبتاً موافقم</label>
-        <label><input type="radio" name="q1" value="0"> خنثی</label>
-        <label><input type="radio" name="q1" value="-1"> نسبتاً مخالفم</label>
-        <label><input type="radio" name="q1" value="-2"> مخالفم</label>
-        <label><input type="radio" name="q1" value="-3"> کاملاً مخالفم</label>
+        <label><input type="radio" name="q1" value="7">کاملاً موافقم</label>
+        <label><input type="radio" name="q1" value="6">موافقم</label>
+        <label><input type="radio" name="q1" value="5">نسبتاً موافقم</label>
+        <label><input type="radio" name="q1" value="4">خنثی</label>
+        <label><input type="radio" name="q1" value="3">نسبتاً مخالفم</label>
+        <label><input type="radio" name="q1" value="2">مخالفم</label>
+        <label><input type="radio" name="q1" value="1">کاملاً مخالفم</label>
       </div>
     </div>
-    <!-- Add 9 more similar blocks here as needed -->
-    <button type="submit" class="submit-btn">مشاهده نتیجه</button>
-  </form>
-  <p id="result"></p>
 
-  <script>
-    document.getElementById("mbtiForm").addEventListener("submit", function(event) {
-      event.preventDefault();
-      const inputs = document.querySelectorAll("input[type=radio]:checked");
-      if (inputs.length < 1) {
-        alert("لطفاً به همه سؤالات پاسخ دهید.");
-        return;
-      }
-      // Fake result for preview
-      document.getElementById("result").textContent = "نتیجه: ENTJ – مدیر";
-    });
-  </script>
+    <div class="question">
+      <p><strong>سوال 2:</strong> ایده‌های پیچیده و نو بیش‌تر از ایده‌های ساده و آشنا شما را هیجان‌زده می‌کنند.</p>
+      <div class="options">
+        <label><input type="radio" name="q2" value="7">کاملاً موافقم</label>
+        <label><input type="radio" name="q2" value="6">موافقم</label>
+        <label><input type="radio" name="q2" value="5">نسبتاً موافقم</label>
+        <label><input type="radio" name="q2" value="4">خنثی</label>
+        <label><input type="radio" name="q2" value="3">نسبتاً مخالفم</label>
+        <label><input type="radio" name="q2" value="2">مخالفم</label>
+        <label><input type="radio" name="q2" value="1">کاملاً مخالفم</label>
+      </div>
+    </div>
+
+    <button type="submit">مشاهده نتیجه</button>
+  </form>
 </body>
 </html>
