@@ -2,39 +2,69 @@
 <!DOCTYPE html>
 <html lang="fa" dir="rtl">
 <head>
-    <meta charset="UTF-8">
-    <title>تست شخصیت‌شناسی MBTI</title>
-    <style>
-        body { font-family: Tahoma, sans-serif; padding: 2rem; line-height: 2; background: #fff; color: #222; direction: rtl; }
-        h1 { color: #d6006e; text-align: center; }
-        .question { margin-bottom: 2rem; }
-        .options { display: flex; justify-content: space-between; flex-wrap: wrap; gap: 1rem; margin-top: 0.5rem; }
-        .options label { flex: 1 1 14%; text-align: center; padding: 0.5rem; border: 1px solid #ccc; border-radius: 6px; cursor: pointer; }
-        .options input[type="radio"] { display: none; }
-        .options input[type="radio"]:checked + span { background: #d6006e; color: #fff; }
-        button { display: block; margin: 2rem auto; padding: 1rem 2rem; font-size: 1.2rem; background: #000; color: #fff; border: none; cursor: pointer; border-radius: 8px; }
-        .result { text-align: center; margin-top: 3rem; font-weight: bold; font-size: 1.5rem; display: none; }
-    </style>
+  <meta charset="UTF-8">
+  <title>تست شخصیت MBTI</title>
+  <style>
+    body {
+      font-family: 'IRANYekan', sans-serif;
+      background-color: #f9f9f9;
+      color: #333;
+      direction: rtl;
+      max-width: 900px;
+      margin: auto;
+      padding: 24px;
+    }
+    .question {
+      margin-bottom: 20px;
+      padding: 16px;
+      background: #fff;
+      border-radius: 12px;
+      box-shadow: 0 0 10px rgba(0,0,0,0.05);
+    }
+    .options {
+      display: flex;
+      justify-content: space-between;
+      margin-top: 10px;
+    }
+    .options label {
+      flex: 1;
+      text-align: center;
+      padding: 8px;
+      cursor: pointer;
+      border-radius: 8px;
+      background-color: #eee;
+      margin: 0 4px;
+    }
+    .submit {
+      margin-top: 40px;
+      padding: 12px 20px;
+      background-color: #cc2b5e;
+      color: #fff;
+      font-size: 18px;
+      border: none;
+      border-radius: 10px;
+      cursor: pointer;
+    }
+  </style>
 </head>
 <body>
-    <h1>تست شخصیت‌شناسی MBTI</h1>
-    <p>لطفاً به تمام ۱۰ سوال زیر پاسخ دهید. در پایان، تیپ شخصیتی شما نمایش داده خواهد شد.</p>
-    <form id="mbtiForm">
-        <div class='question'><strong>سوال شماره 1:</strong> متن سوال 1 (در اینجا متن دقیق هر سوال درج خواهد شد)<div class='options'><label><input type='radio' name='q1' value='0'><span>کاملاً مخالفم</span></label><label><input type='radio' name='q1' value='1'><span>مخالفم</span></label><label><input type='radio' name='q1' value='2'><span>نسبتاً مخالفم</span></label><label><input type='radio' name='q1' value='3'><span>خنثی</span></label><label><input type='radio' name='q1' value='4'><span>نسبتاً موافقم</span></label><label><input type='radio' name='q1' value='5'><span>موافقم</span></label><label><input type='radio' name='q1' value='6'><span>کاملاً موافقم</span></label></div></div><div class='question'><strong>سوال شماره 2:</strong> متن سوال 2 (در اینجا متن دقیق هر سوال درج خواهد شد)<div class='options'><label><input type='radio' name='q2' value='0'><span>کاملاً مخالفم</span></label><label><input type='radio' name='q2' value='1'><span>مخالفم</span></label><label><input type='radio' name='q2' value='2'><span>نسبتاً مخالفم</span></label><label><input type='radio' name='q2' value='3'><span>خنثی</span></label><label><input type='radio' name='q2' value='4'><span>نسبتاً موافقم</span></label><label><input type='radio' name='q2' value='5'><span>موافقم</span></label><label><input type='radio' name='q2' value='6'><span>کاملاً موافقم</span></label></div></div><div class='question'><strong>سوال شماره 3:</strong> متن سوال 3 (در اینجا متن دقیق هر سوال درج خواهد شد)<div class='options'><label><input type='radio' name='q3' value='0'><span>کاملاً مخالفم</span></label><label><input type='radio' name='q3' value='1'><span>مخالفم</span></label><label><input type='radio' name='q3' value='2'><span>نسبتاً مخالفم</span></label><label><input type='radio' name='q3' value='3'><span>خنثی</span></label><label><input type='radio' name='q3' value='4'><span>نسبتاً موافقم</span></label><label><input type='radio' name='q3' value='5'><span>موافقم</span></label><label><input type='radio' name='q3' value='6'><span>کاملاً موافقم</span></label></div></div><div class='question'><strong>سوال شماره 4:</strong> متن سوال 4 (در اینجا متن دقیق هر سوال درج خواهد شد)<div class='options'><label><input type='radio' name='q4' value='0'><span>کاملاً مخالفم</span></label><label><input type='radio' name='q4' value='1'><span>مخالفم</span></label><label><input type='radio' name='q4' value='2'><span>نسبتاً مخالفم</span></label><label><input type='radio' name='q4' value='3'><span>خنثی</span></label><label><input type='radio' name='q4' value='4'><span>نسبتاً موافقم</span></label><label><input type='radio' name='q4' value='5'><span>موافقم</span></label><label><input type='radio' name='q4' value='6'><span>کاملاً موافقم</span></label></div></div><div class='question'><strong>سوال شماره 5:</strong> متن سوال 5 (در اینجا متن دقیق هر سوال درج خواهد شد)<div class='options'><label><input type='radio' name='q5' value='0'><span>کاملاً مخالفم</span></label><label><input type='radio' name='q5' value='1'><span>مخالفم</span></label><label><input type='radio' name='q5' value='2'><span>نسبتاً مخالفم</span></label><label><input type='radio' name='q5' value='3'><span>خنثی</span></label><label><input type='radio' name='q5' value='4'><span>نسبتاً موافقم</span></label><label><input type='radio' name='q5' value='5'><span>موافقم</span></label><label><input type='radio' name='q5' value='6'><span>کاملاً موافقم</span></label></div></div><div class='question'><strong>سوال شماره 6:</strong> متن سوال 6 (در اینجا متن دقیق هر سوال درج خواهد شد)<div class='options'><label><input type='radio' name='q6' value='0'><span>کاملاً مخالفم</span></label><label><input type='radio' name='q6' value='1'><span>مخالفم</span></label><label><input type='radio' name='q6' value='2'><span>نسبتاً مخالفم</span></label><label><input type='radio' name='q6' value='3'><span>خنثی</span></label><label><input type='radio' name='q6' value='4'><span>نسبتاً موافقم</span></label><label><input type='radio' name='q6' value='5'><span>موافقم</span></label><label><input type='radio' name='q6' value='6'><span>کاملاً موافقم</span></label></div></div><div class='question'><strong>سوال شماره 7:</strong> متن سوال 7 (در اینجا متن دقیق هر سوال درج خواهد شد)<div class='options'><label><input type='radio' name='q7' value='0'><span>کاملاً مخالفم</span></label><label><input type='radio' name='q7' value='1'><span>مخالفم</span></label><label><input type='radio' name='q7' value='2'><span>نسبتاً مخالفم</span></label><label><input type='radio' name='q7' value='3'><span>خنثی</span></label><label><input type='radio' name='q7' value='4'><span>نسبتاً موافقم</span></label><label><input type='radio' name='q7' value='5'><span>موافقم</span></label><label><input type='radio' name='q7' value='6'><span>کاملاً موافقم</span></label></div></div><div class='question'><strong>سوال شماره 8:</strong> متن سوال 8 (در اینجا متن دقیق هر سوال درج خواهد شد)<div class='options'><label><input type='radio' name='q8' value='0'><span>کاملاً مخالفم</span></label><label><input type='radio' name='q8' value='1'><span>مخالفم</span></label><label><input type='radio' name='q8' value='2'><span>نسبتاً مخالفم</span></label><label><input type='radio' name='q8' value='3'><span>خنثی</span></label><label><input type='radio' name='q8' value='4'><span>نسبتاً موافقم</span></label><label><input type='radio' name='q8' value='5'><span>موافقم</span></label><label><input type='radio' name='q8' value='6'><span>کاملاً موافقم</span></label></div></div><div class='question'><strong>سوال شماره 9:</strong> متن سوال 9 (در اینجا متن دقیق هر سوال درج خواهد شد)<div class='options'><label><input type='radio' name='q9' value='0'><span>کاملاً مخالفم</span></label><label><input type='radio' name='q9' value='1'><span>مخالفم</span></label><label><input type='radio' name='q9' value='2'><span>نسبتاً مخالفم</span></label><label><input type='radio' name='q9' value='3'><span>خنثی</span></label><label><input type='radio' name='q9' value='4'><span>نسبتاً موافقم</span></label><label><input type='radio' name='q9' value='5'><span>موافقم</span></label><label><input type='radio' name='q9' value='6'><span>کاملاً موافقم</span></label></div></div><div class='question'><strong>سوال شماره 10:</strong> متن سوال 10 (در اینجا متن دقیق هر سوال درج خواهد شد)<div class='options'><label><input type='radio' name='q10' value='0'><span>کاملاً مخالفم</span></label><label><input type='radio' name='q10' value='1'><span>مخالفم</span></label><label><input type='radio' name='q10' value='2'><span>نسبتاً مخالفم</span></label><label><input type='radio' name='q10' value='3'><span>خنثی</span></label><label><input type='radio' name='q10' value='4'><span>نسبتاً موافقم</span></label><label><input type='radio' name='q10' value='5'><span>موافقم</span></label><label><input type='radio' name='q10' value='6'><span>کاملاً موافقم</span></label></div></div>
-        <button type="submit">مشاهده نتیجه</button>
-    </form>
-    <div class="result" id="resultBox"></div>
-    <script>
-        document.getElementById('mbtiForm').addEventListener('submit', function(e) {
-            e.preventDefault();
-            const answers = document.querySelectorAll('input[type="radio"]:checked');
-            if (answers.length < 10) {
-                alert("لطفاً به تمام سوالات پاسخ دهید.");
-                return;
-            }
-            document.getElementById('resultBox').style.display = 'block';
-            document.getElementById('resultBox').innerText = "نتیجه تست شما: ESTJ – مدیر";
-        });
-    </script>
+  <h1>تست شخصیت شناسی MBTI</h1>
+  <p>به همه ۶۰ سؤال با دقت پاسخ دهید. پاسخ‌ها اجباری هستند.</p>
+  <div class="question">
+    <p>۱. در مهمانی‌ها معمولاً انرژی می‌گیرید یا خسته می‌شوید؟</p>
+    <div class="options">
+      <label><input type="radio" name="q1" value="-3">کاملاً مخالفم</label>
+      <label><input type="radio" name="q1" value="-2">مخالفم</label>
+      <label><input type="radio" name="q1" value="-1">کمی مخالفم</label>
+      <label><input type="radio" name="q1" value="0">خنثی</label>
+      <label><input type="radio" name="q1" value="1">کمی موافقم</label>
+      <label><input type="radio" name="q1" value="2">موافقم</label>
+      <label><input type="radio" name="q1" value="3">کاملاً موافقم</label>
+    </div>
+  </div>
+
+  <!-- سؤالات دیگر باید به همین شکل اضافه شوند -->
+
+  <button class="submit">مشاهده نتیجه</button>
 </body>
 </html>
