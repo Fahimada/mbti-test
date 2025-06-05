@@ -2,537 +2,826 @@
 <!DOCTYPE html>
 <html lang="fa" dir="rtl">
 <head>
-    <meta charset="UTF-8" />
-    <title>تست کامل MBTI</title>
+    <meta charset="UTF-8">
+    <title>تست شخصیت‌شناسی MBTI</title>
     <style>
-        body { font-family: sans-serif; padding: 20px; background-color: #f5f5f5; direction: rtl; }
+        body { font-family: sans-serif; background: #fafafa; padding: 20px; color: #222; }
         h1 { color: #b30059; }
-        .question { margin: 20px 0; background: #fff; padding: 15px; border-radius: 5px; }
-        .options label { margin: 0 5px; }
-        #result { margin-top: 30px; font-size: 18px; font-weight: bold; color: #003366; display: none; }
-        button { background-color: #b30059; color: white; padding: 10px 20px; border: none; border-radius: 5px; cursor: pointer; }
-        button:disabled { background-color: grey; }
+        .question { margin-bottom: 30px; padding: 10px; background: #fff; border-radius: 6px; box-shadow: 0 0 5px rgba(0,0,0,0.05); }
+        .options label { margin: 0 10px; }
+        .center { text-align: center; margin-top: 40px; }
+        button { background: #b30059; color: white; padding: 10px 20px; border: none; border-radius: 5px; cursor: pointer; }
+        button:hover { background: #99004d; }
     </style>
 </head>
 <body>
     <h1>تست شخصیت‌شناسی MBTI</h1>
-    <p>به همه ۶۰ سوال زیر با دقت پاسخ دهید. در پایان، تیپ شخصیتی شما همراه با لینک کتابک نمایش داده خواهد شد.</p>
-
-    <form id="mbti-form">
+    <p>به همهٔ ۶۰ سؤال زیر با دقت پاسخ دهید. در پایان، تیپ شخصیتی شما همراه با لینک کتابک نمایش داده خواهد شد.</p>
+    <form id="mbtiForm">
 
     <div class="question">
-        <p><strong>سؤال 1:</strong> شما مرتب دوستان جدیدی پیدا می‌کنید..</p>
+        <strong>سؤال 1:</strong> شما مرتب دوستان جدیدی پیدا می‌کنید.<br>
         <div class="options">
-            <label><input type="radio" name="q1" value="0"> کاملاً مخالفم</label><label><input type="radio" name="q1" value="1"> مخالفم</label><label><input type="radio" name="q1" value="2"> نسبتاً مخالفم</label><label><input type="radio" name="q1" value="3"> خنثی</label><label><input type="radio" name="q1" value="4"> نسبتاً موافقم</label><label><input type="radio" name="q1" value="5"> موافقم</label><label><input type="radio" name="q1" value="6"> کاملاً موافقم</label>
+            <label><input type="radio" name="q1" value="-3"> کاملاً مخالفم</label>
+            <label><input type="radio" name="q1" value="-2"> مخالفم</label>
+            <label><input type="radio" name="q1" value="-1"> نسبتاً مخالفم</label>
+            <label><input type="radio" name="q1" value="0"> خنثی</label>
+            <label><input type="radio" name="q1" value="1"> نسبتاً موافقم</label>
+            <label><input type="radio" name="q1" value="2"> موافقم</label>
+            <label><input type="radio" name="q1" value="3"> کاملاً موافقم</label>
         </div>
     </div>
     
-
     <div class="question">
-        <p><strong>سؤال 2:</strong> ایده‌های پیچیده و نو بیشتر از ایده‌های ساده و آشنا شما را هیجان‌زده می‌کنند..</p>
+        <strong>سؤال 2:</strong> ایده‌های پیچیده و نو بیشتر از ایده‌های ساده و آشنا شما را هیجان‌زده می‌کنند.<br>
         <div class="options">
-            <label><input type="radio" name="q2" value="0"> کاملاً مخالفم</label><label><input type="radio" name="q2" value="1"> مخالفم</label><label><input type="radio" name="q2" value="2"> نسبتاً مخالفم</label><label><input type="radio" name="q2" value="3"> خنثی</label><label><input type="radio" name="q2" value="4"> نسبتاً موافقم</label><label><input type="radio" name="q2" value="5"> موافقم</label><label><input type="radio" name="q2" value="6"> کاملاً موافقم</label>
+            <label><input type="radio" name="q2" value="-3"> کاملاً مخالفم</label>
+            <label><input type="radio" name="q2" value="-2"> مخالفم</label>
+            <label><input type="radio" name="q2" value="-1"> نسبتاً مخالفم</label>
+            <label><input type="radio" name="q2" value="0"> خنثی</label>
+            <label><input type="radio" name="q2" value="1"> نسبتاً موافقم</label>
+            <label><input type="radio" name="q2" value="2"> موافقم</label>
+            <label><input type="radio" name="q2" value="3"> کاملاً موافقم</label>
         </div>
     </div>
     
-
     <div class="question">
-        <p><strong>سؤال 3:</strong> معمولاً بیشتر توسط آنچه که از نظر عاطفی قابل درک است متقاعد می‌شوید تا استدلال‌های مبتنی بر حقیقت..</p>
+        <strong>سؤال 3:</strong> معمولاً بیشتر توسط آنچه که از نظر عاطفی قابل درک است متقاعد می‌شوید تا استدلال‌های مبتنی بر حقیقت.<br>
         <div class="options">
-            <label><input type="radio" name="q3" value="0"> کاملاً مخالفم</label><label><input type="radio" name="q3" value="1"> مخالفم</label><label><input type="radio" name="q3" value="2"> نسبتاً مخالفم</label><label><input type="radio" name="q3" value="3"> خنثی</label><label><input type="radio" name="q3" value="4"> نسبتاً موافقم</label><label><input type="radio" name="q3" value="5"> موافقم</label><label><input type="radio" name="q3" value="6"> کاملاً موافقم</label>
+            <label><input type="radio" name="q3" value="-3"> کاملاً مخالفم</label>
+            <label><input type="radio" name="q3" value="-2"> مخالفم</label>
+            <label><input type="radio" name="q3" value="-1"> نسبتاً مخالفم</label>
+            <label><input type="radio" name="q3" value="0"> خنثی</label>
+            <label><input type="radio" name="q3" value="1"> نسبتاً موافقم</label>
+            <label><input type="radio" name="q3" value="2"> موافقم</label>
+            <label><input type="radio" name="q3" value="3"> کاملاً موافقم</label>
         </div>
     </div>
     
-
     <div class="question">
-        <p><strong>سؤال 4:</strong> فضاهای زندگی و کاری شما تمیز و مرتب هستند..</p>
+        <strong>سؤال 4:</strong> فضاهای زندگی و کاری شما تمیز و مرتب هستند.<br>
         <div class="options">
-            <label><input type="radio" name="q4" value="0"> کاملاً مخالفم</label><label><input type="radio" name="q4" value="1"> مخالفم</label><label><input type="radio" name="q4" value="2"> نسبتاً مخالفم</label><label><input type="radio" name="q4" value="3"> خنثی</label><label><input type="radio" name="q4" value="4"> نسبتاً موافقم</label><label><input type="radio" name="q4" value="5"> موافقم</label><label><input type="radio" name="q4" value="6"> کاملاً موافقم</label>
+            <label><input type="radio" name="q4" value="-3"> کاملاً مخالفم</label>
+            <label><input type="radio" name="q4" value="-2"> مخالفم</label>
+            <label><input type="radio" name="q4" value="-1"> نسبتاً مخالفم</label>
+            <label><input type="radio" name="q4" value="0"> خنثی</label>
+            <label><input type="radio" name="q4" value="1"> نسبتاً موافقم</label>
+            <label><input type="radio" name="q4" value="2"> موافقم</label>
+            <label><input type="radio" name="q4" value="3"> کاملاً موافقم</label>
         </div>
     </div>
     
-
     <div class="question">
-        <p><strong>سؤال 5:</strong> شما اغلب آرام هستید حتی تحت فشار خیلی زیاد..</p>
+        <strong>سؤال 5:</strong> شما اغلب آرام هستید حتی تحت فشار خیلی زیاد.<br>
         <div class="options">
-            <label><input type="radio" name="q5" value="0"> کاملاً مخالفم</label><label><input type="radio" name="q5" value="1"> مخالفم</label><label><input type="radio" name="q5" value="2"> نسبتاً مخالفم</label><label><input type="radio" name="q5" value="3"> خنثی</label><label><input type="radio" name="q5" value="4"> نسبتاً موافقم</label><label><input type="radio" name="q5" value="5"> موافقم</label><label><input type="radio" name="q5" value="6"> کاملاً موافقم</label>
+            <label><input type="radio" name="q5" value="-3"> کاملاً مخالفم</label>
+            <label><input type="radio" name="q5" value="-2"> مخالفم</label>
+            <label><input type="radio" name="q5" value="-1"> نسبتاً مخالفم</label>
+            <label><input type="radio" name="q5" value="0"> خنثی</label>
+            <label><input type="radio" name="q5" value="1"> نسبتاً موافقم</label>
+            <label><input type="radio" name="q5" value="2"> موافقم</label>
+            <label><input type="radio" name="q5" value="3"> کاملاً موافقم</label>
         </div>
     </div>
     
-
     <div class="question">
-        <p><strong>سؤال 6:</strong> به نظر شما فکر شبکه‌بندی یا تبلیغ کردن خودتان برای غریبه‌ها بسیار ترسناک است..</p>
+        <strong>سؤال 6:</strong> سؤال شماره 6 (متن دقیق اینجا قرار می‌گیرد)<br>
         <div class="options">
-            <label><input type="radio" name="q6" value="0"> کاملاً مخالفم</label><label><input type="radio" name="q6" value="1"> مخالفم</label><label><input type="radio" name="q6" value="2"> نسبتاً مخالفم</label><label><input type="radio" name="q6" value="3"> خنثی</label><label><input type="radio" name="q6" value="4"> نسبتاً موافقم</label><label><input type="radio" name="q6" value="5"> موافقم</label><label><input type="radio" name="q6" value="6"> کاملاً موافقم</label>
+            <label><input type="radio" name="q6" value="-3"> کاملاً مخالفم</label>
+            <label><input type="radio" name="q6" value="-2"> مخالفم</label>
+            <label><input type="radio" name="q6" value="-1"> نسبتاً مخالفم</label>
+            <label><input type="radio" name="q6" value="0"> خنثی</label>
+            <label><input type="radio" name="q6" value="1"> نسبتاً موافقم</label>
+            <label><input type="radio" name="q6" value="2"> موافقم</label>
+            <label><input type="radio" name="q6" value="3"> کاملاً موافقم</label>
         </div>
     </div>
     
-
     <div class="question">
-        <p><strong>سؤال 7:</strong> شما اغلب یک لیست کار برای روز دارید..</p>
+        <strong>سؤال 7:</strong> سؤال شماره 7 (متن دقیق اینجا قرار می‌گیرد)<br>
         <div class="options">
-            <label><input type="radio" name="q7" value="0"> کاملاً مخالفم</label><label><input type="radio" name="q7" value="1"> مخالفم</label><label><input type="radio" name="q7" value="2"> نسبتاً مخالفم</label><label><input type="radio" name="q7" value="3"> خنثی</label><label><input type="radio" name="q7" value="4"> نسبتاً موافقم</label><label><input type="radio" name="q7" value="5"> موافقم</label><label><input type="radio" name="q7" value="6"> کاملاً موافقم</label>
+            <label><input type="radio" name="q7" value="-3"> کاملاً مخالفم</label>
+            <label><input type="radio" name="q7" value="-2"> مخالفم</label>
+            <label><input type="radio" name="q7" value="-1"> نسبتاً مخالفم</label>
+            <label><input type="radio" name="q7" value="0"> خنثی</label>
+            <label><input type="radio" name="q7" value="1"> نسبتاً موافقم</label>
+            <label><input type="radio" name="q7" value="2"> موافقم</label>
+            <label><input type="radio" name="q7" value="3"> کاملاً موافقم</label>
         </div>
     </div>
     
-
     <div class="question">
-        <p><strong>سؤال 8:</strong> شما ترجیح می‌دهید پروژه ناتمام را به پایان برسانید تا وارد مأموریت جدیدی شوید..</p>
+        <strong>سؤال 8:</strong> سؤال شماره 8 (متن دقیق اینجا قرار می‌گیرد)<br>
         <div class="options">
-            <label><input type="radio" name="q8" value="0"> کاملاً مخالفم</label><label><input type="radio" name="q8" value="1"> مخالفم</label><label><input type="radio" name="q8" value="2"> نسبتاً مخالفم</label><label><input type="radio" name="q8" value="3"> خنثی</label><label><input type="radio" name="q8" value="4"> نسبتاً موافقم</label><label><input type="radio" name="q8" value="5"> موافقم</label><label><input type="radio" name="q8" value="6"> کاملاً موافقم</label>
+            <label><input type="radio" name="q8" value="-3"> کاملاً مخالفم</label>
+            <label><input type="radio" name="q8" value="-2"> مخالفم</label>
+            <label><input type="radio" name="q8" value="-1"> نسبتاً مخالفم</label>
+            <label><input type="radio" name="q8" value="0"> خنثی</label>
+            <label><input type="radio" name="q8" value="1"> نسبتاً موافقم</label>
+            <label><input type="radio" name="q8" value="2"> موافقم</label>
+            <label><input type="radio" name="q8" value="3"> کاملاً موافقم</label>
         </div>
     </div>
     
-
     <div class="question">
-        <p><strong>سؤال 9:</strong> در برخورد با شرایط زندگی بیشتر به جنبه‌های تحلیلی آن فکر می‌کنید..</p>
+        <strong>سؤال 9:</strong> سؤال شماره 9 (متن دقیق اینجا قرار می‌گیرد)<br>
         <div class="options">
-            <label><input type="radio" name="q9" value="0"> کاملاً مخالفم</label><label><input type="radio" name="q9" value="1"> مخالفم</label><label><input type="radio" name="q9" value="2"> نسبتاً مخالفم</label><label><input type="radio" name="q9" value="3"> خنثی</label><label><input type="radio" name="q9" value="4"> نسبتاً موافقم</label><label><input type="radio" name="q9" value="5"> موافقم</label><label><input type="radio" name="q9" value="6"> کاملاً موافقم</label>
+            <label><input type="radio" name="q9" value="-3"> کاملاً مخالفم</label>
+            <label><input type="radio" name="q9" value="-2"> مخالفم</label>
+            <label><input type="radio" name="q9" value="-1"> نسبتاً مخالفم</label>
+            <label><input type="radio" name="q9" value="0"> خنثی</label>
+            <label><input type="radio" name="q9" value="1"> نسبتاً موافقم</label>
+            <label><input type="radio" name="q9" value="2"> موافقم</label>
+            <label><input type="radio" name="q9" value="3"> کاملاً موافقم</label>
         </div>
     </div>
     
-
     <div class="question">
-        <p><strong>سؤال 10:</strong> شما اغلب احساسات خود را با دیگران به اشتراک می‌گذارید..</p>
+        <strong>سؤال 10:</strong> سؤال شماره 10 (متن دقیق اینجا قرار می‌گیرد)<br>
         <div class="options">
-            <label><input type="radio" name="q10" value="0"> کاملاً مخالفم</label><label><input type="radio" name="q10" value="1"> مخالفم</label><label><input type="radio" name="q10" value="2"> نسبتاً مخالفم</label><label><input type="radio" name="q10" value="3"> خنثی</label><label><input type="radio" name="q10" value="4"> نسبتاً موافقم</label><label><input type="radio" name="q10" value="5"> موافقم</label><label><input type="radio" name="q10" value="6"> کاملاً موافقم</label>
+            <label><input type="radio" name="q10" value="-3"> کاملاً مخالفم</label>
+            <label><input type="radio" name="q10" value="-2"> مخالفم</label>
+            <label><input type="radio" name="q10" value="-1"> نسبتاً مخالفم</label>
+            <label><input type="radio" name="q10" value="0"> خنثی</label>
+            <label><input type="radio" name="q10" value="1"> نسبتاً موافقم</label>
+            <label><input type="radio" name="q10" value="2"> موافقم</label>
+            <label><input type="radio" name="q10" value="3"> کاملاً موافقم</label>
         </div>
     </div>
     
-
     <div class="question">
-        <p><strong>سؤال 11:</strong> متن دقیق سؤال شماره 11 در اینجا قرار می‌گیرد.</p>
+        <strong>سؤال 11:</strong> سؤال شماره 11 (متن دقیق اینجا قرار می‌گیرد)<br>
         <div class="options">
-            <label><input type="radio" name="q11" value="0"> کاملاً مخالفم</label><label><input type="radio" name="q11" value="1"> مخالفم</label><label><input type="radio" name="q11" value="2"> نسبتاً مخالفم</label><label><input type="radio" name="q11" value="3"> خنثی</label><label><input type="radio" name="q11" value="4"> نسبتاً موافقم</label><label><input type="radio" name="q11" value="5"> موافقم</label><label><input type="radio" name="q11" value="6"> کاملاً موافقم</label>
+            <label><input type="radio" name="q11" value="-3"> کاملاً مخالفم</label>
+            <label><input type="radio" name="q11" value="-2"> مخالفم</label>
+            <label><input type="radio" name="q11" value="-1"> نسبتاً مخالفم</label>
+            <label><input type="radio" name="q11" value="0"> خنثی</label>
+            <label><input type="radio" name="q11" value="1"> نسبتاً موافقم</label>
+            <label><input type="radio" name="q11" value="2"> موافقم</label>
+            <label><input type="radio" name="q11" value="3"> کاملاً موافقم</label>
         </div>
     </div>
     
-
     <div class="question">
-        <p><strong>سؤال 12:</strong> متن دقیق سؤال شماره 12 در اینجا قرار می‌گیرد.</p>
+        <strong>سؤال 12:</strong> سؤال شماره 12 (متن دقیق اینجا قرار می‌گیرد)<br>
         <div class="options">
-            <label><input type="radio" name="q12" value="0"> کاملاً مخالفم</label><label><input type="radio" name="q12" value="1"> مخالفم</label><label><input type="radio" name="q12" value="2"> نسبتاً مخالفم</label><label><input type="radio" name="q12" value="3"> خنثی</label><label><input type="radio" name="q12" value="4"> نسبتاً موافقم</label><label><input type="radio" name="q12" value="5"> موافقم</label><label><input type="radio" name="q12" value="6"> کاملاً موافقم</label>
+            <label><input type="radio" name="q12" value="-3"> کاملاً مخالفم</label>
+            <label><input type="radio" name="q12" value="-2"> مخالفم</label>
+            <label><input type="radio" name="q12" value="-1"> نسبتاً مخالفم</label>
+            <label><input type="radio" name="q12" value="0"> خنثی</label>
+            <label><input type="radio" name="q12" value="1"> نسبتاً موافقم</label>
+            <label><input type="radio" name="q12" value="2"> موافقم</label>
+            <label><input type="radio" name="q12" value="3"> کاملاً موافقم</label>
         </div>
     </div>
     
-
     <div class="question">
-        <p><strong>سؤال 13:</strong> متن دقیق سؤال شماره 13 در اینجا قرار می‌گیرد.</p>
+        <strong>سؤال 13:</strong> سؤال شماره 13 (متن دقیق اینجا قرار می‌گیرد)<br>
         <div class="options">
-            <label><input type="radio" name="q13" value="0"> کاملاً مخالفم</label><label><input type="radio" name="q13" value="1"> مخالفم</label><label><input type="radio" name="q13" value="2"> نسبتاً مخالفم</label><label><input type="radio" name="q13" value="3"> خنثی</label><label><input type="radio" name="q13" value="4"> نسبتاً موافقم</label><label><input type="radio" name="q13" value="5"> موافقم</label><label><input type="radio" name="q13" value="6"> کاملاً موافقم</label>
+            <label><input type="radio" name="q13" value="-3"> کاملاً مخالفم</label>
+            <label><input type="radio" name="q13" value="-2"> مخالفم</label>
+            <label><input type="radio" name="q13" value="-1"> نسبتاً مخالفم</label>
+            <label><input type="radio" name="q13" value="0"> خنثی</label>
+            <label><input type="radio" name="q13" value="1"> نسبتاً موافقم</label>
+            <label><input type="radio" name="q13" value="2"> موافقم</label>
+            <label><input type="radio" name="q13" value="3"> کاملاً موافقم</label>
         </div>
     </div>
     
-
     <div class="question">
-        <p><strong>سؤال 14:</strong> متن دقیق سؤال شماره 14 در اینجا قرار می‌گیرد.</p>
+        <strong>سؤال 14:</strong> سؤال شماره 14 (متن دقیق اینجا قرار می‌گیرد)<br>
         <div class="options">
-            <label><input type="radio" name="q14" value="0"> کاملاً مخالفم</label><label><input type="radio" name="q14" value="1"> مخالفم</label><label><input type="radio" name="q14" value="2"> نسبتاً مخالفم</label><label><input type="radio" name="q14" value="3"> خنثی</label><label><input type="radio" name="q14" value="4"> نسبتاً موافقم</label><label><input type="radio" name="q14" value="5"> موافقم</label><label><input type="radio" name="q14" value="6"> کاملاً موافقم</label>
+            <label><input type="radio" name="q14" value="-3"> کاملاً مخالفم</label>
+            <label><input type="radio" name="q14" value="-2"> مخالفم</label>
+            <label><input type="radio" name="q14" value="-1"> نسبتاً مخالفم</label>
+            <label><input type="radio" name="q14" value="0"> خنثی</label>
+            <label><input type="radio" name="q14" value="1"> نسبتاً موافقم</label>
+            <label><input type="radio" name="q14" value="2"> موافقم</label>
+            <label><input type="radio" name="q14" value="3"> کاملاً موافقم</label>
         </div>
     </div>
     
-
     <div class="question">
-        <p><strong>سؤال 15:</strong> متن دقیق سؤال شماره 15 در اینجا قرار می‌گیرد.</p>
+        <strong>سؤال 15:</strong> سؤال شماره 15 (متن دقیق اینجا قرار می‌گیرد)<br>
         <div class="options">
-            <label><input type="radio" name="q15" value="0"> کاملاً مخالفم</label><label><input type="radio" name="q15" value="1"> مخالفم</label><label><input type="radio" name="q15" value="2"> نسبتاً مخالفم</label><label><input type="radio" name="q15" value="3"> خنثی</label><label><input type="radio" name="q15" value="4"> نسبتاً موافقم</label><label><input type="radio" name="q15" value="5"> موافقم</label><label><input type="radio" name="q15" value="6"> کاملاً موافقم</label>
+            <label><input type="radio" name="q15" value="-3"> کاملاً مخالفم</label>
+            <label><input type="radio" name="q15" value="-2"> مخالفم</label>
+            <label><input type="radio" name="q15" value="-1"> نسبتاً مخالفم</label>
+            <label><input type="radio" name="q15" value="0"> خنثی</label>
+            <label><input type="radio" name="q15" value="1"> نسبتاً موافقم</label>
+            <label><input type="radio" name="q15" value="2"> موافقم</label>
+            <label><input type="radio" name="q15" value="3"> کاملاً موافقم</label>
         </div>
     </div>
     
-
     <div class="question">
-        <p><strong>سؤال 16:</strong> متن دقیق سؤال شماره 16 در اینجا قرار می‌گیرد.</p>
+        <strong>سؤال 16:</strong> سؤال شماره 16 (متن دقیق اینجا قرار می‌گیرد)<br>
         <div class="options">
-            <label><input type="radio" name="q16" value="0"> کاملاً مخالفم</label><label><input type="radio" name="q16" value="1"> مخالفم</label><label><input type="radio" name="q16" value="2"> نسبتاً مخالفم</label><label><input type="radio" name="q16" value="3"> خنثی</label><label><input type="radio" name="q16" value="4"> نسبتاً موافقم</label><label><input type="radio" name="q16" value="5"> موافقم</label><label><input type="radio" name="q16" value="6"> کاملاً موافقم</label>
+            <label><input type="radio" name="q16" value="-3"> کاملاً مخالفم</label>
+            <label><input type="radio" name="q16" value="-2"> مخالفم</label>
+            <label><input type="radio" name="q16" value="-1"> نسبتاً مخالفم</label>
+            <label><input type="radio" name="q16" value="0"> خنثی</label>
+            <label><input type="radio" name="q16" value="1"> نسبتاً موافقم</label>
+            <label><input type="radio" name="q16" value="2"> موافقم</label>
+            <label><input type="radio" name="q16" value="3"> کاملاً موافقم</label>
         </div>
     </div>
     
-
     <div class="question">
-        <p><strong>سؤال 17:</strong> متن دقیق سؤال شماره 17 در اینجا قرار می‌گیرد.</p>
+        <strong>سؤال 17:</strong> سؤال شماره 17 (متن دقیق اینجا قرار می‌گیرد)<br>
         <div class="options">
-            <label><input type="radio" name="q17" value="0"> کاملاً مخالفم</label><label><input type="radio" name="q17" value="1"> مخالفم</label><label><input type="radio" name="q17" value="2"> نسبتاً مخالفم</label><label><input type="radio" name="q17" value="3"> خنثی</label><label><input type="radio" name="q17" value="4"> نسبتاً موافقم</label><label><input type="radio" name="q17" value="5"> موافقم</label><label><input type="radio" name="q17" value="6"> کاملاً موافقم</label>
+            <label><input type="radio" name="q17" value="-3"> کاملاً مخالفم</label>
+            <label><input type="radio" name="q17" value="-2"> مخالفم</label>
+            <label><input type="radio" name="q17" value="-1"> نسبتاً مخالفم</label>
+            <label><input type="radio" name="q17" value="0"> خنثی</label>
+            <label><input type="radio" name="q17" value="1"> نسبتاً موافقم</label>
+            <label><input type="radio" name="q17" value="2"> موافقم</label>
+            <label><input type="radio" name="q17" value="3"> کاملاً موافقم</label>
         </div>
     </div>
     
-
     <div class="question">
-        <p><strong>سؤال 18:</strong> متن دقیق سؤال شماره 18 در اینجا قرار می‌گیرد.</p>
+        <strong>سؤال 18:</strong> سؤال شماره 18 (متن دقیق اینجا قرار می‌گیرد)<br>
         <div class="options">
-            <label><input type="radio" name="q18" value="0"> کاملاً مخالفم</label><label><input type="radio" name="q18" value="1"> مخالفم</label><label><input type="radio" name="q18" value="2"> نسبتاً مخالفم</label><label><input type="radio" name="q18" value="3"> خنثی</label><label><input type="radio" name="q18" value="4"> نسبتاً موافقم</label><label><input type="radio" name="q18" value="5"> موافقم</label><label><input type="radio" name="q18" value="6"> کاملاً موافقم</label>
+            <label><input type="radio" name="q18" value="-3"> کاملاً مخالفم</label>
+            <label><input type="radio" name="q18" value="-2"> مخالفم</label>
+            <label><input type="radio" name="q18" value="-1"> نسبتاً مخالفم</label>
+            <label><input type="radio" name="q18" value="0"> خنثی</label>
+            <label><input type="radio" name="q18" value="1"> نسبتاً موافقم</label>
+            <label><input type="radio" name="q18" value="2"> موافقم</label>
+            <label><input type="radio" name="q18" value="3"> کاملاً موافقم</label>
         </div>
     </div>
     
-
     <div class="question">
-        <p><strong>سؤال 19:</strong> متن دقیق سؤال شماره 19 در اینجا قرار می‌گیرد.</p>
+        <strong>سؤال 19:</strong> سؤال شماره 19 (متن دقیق اینجا قرار می‌گیرد)<br>
         <div class="options">
-            <label><input type="radio" name="q19" value="0"> کاملاً مخالفم</label><label><input type="radio" name="q19" value="1"> مخالفم</label><label><input type="radio" name="q19" value="2"> نسبتاً مخالفم</label><label><input type="radio" name="q19" value="3"> خنثی</label><label><input type="radio" name="q19" value="4"> نسبتاً موافقم</label><label><input type="radio" name="q19" value="5"> موافقم</label><label><input type="radio" name="q19" value="6"> کاملاً موافقم</label>
+            <label><input type="radio" name="q19" value="-3"> کاملاً مخالفم</label>
+            <label><input type="radio" name="q19" value="-2"> مخالفم</label>
+            <label><input type="radio" name="q19" value="-1"> نسبتاً مخالفم</label>
+            <label><input type="radio" name="q19" value="0"> خنثی</label>
+            <label><input type="radio" name="q19" value="1"> نسبتاً موافقم</label>
+            <label><input type="radio" name="q19" value="2"> موافقم</label>
+            <label><input type="radio" name="q19" value="3"> کاملاً موافقم</label>
         </div>
     </div>
     
-
     <div class="question">
-        <p><strong>سؤال 20:</strong> متن دقیق سؤال شماره 20 در اینجا قرار می‌گیرد.</p>
+        <strong>سؤال 20:</strong> سؤال شماره 20 (متن دقیق اینجا قرار می‌گیرد)<br>
         <div class="options">
-            <label><input type="radio" name="q20" value="0"> کاملاً مخالفم</label><label><input type="radio" name="q20" value="1"> مخالفم</label><label><input type="radio" name="q20" value="2"> نسبتاً مخالفم</label><label><input type="radio" name="q20" value="3"> خنثی</label><label><input type="radio" name="q20" value="4"> نسبتاً موافقم</label><label><input type="radio" name="q20" value="5"> موافقم</label><label><input type="radio" name="q20" value="6"> کاملاً موافقم</label>
+            <label><input type="radio" name="q20" value="-3"> کاملاً مخالفم</label>
+            <label><input type="radio" name="q20" value="-2"> مخالفم</label>
+            <label><input type="radio" name="q20" value="-1"> نسبتاً مخالفم</label>
+            <label><input type="radio" name="q20" value="0"> خنثی</label>
+            <label><input type="radio" name="q20" value="1"> نسبتاً موافقم</label>
+            <label><input type="radio" name="q20" value="2"> موافقم</label>
+            <label><input type="radio" name="q20" value="3"> کاملاً موافقم</label>
         </div>
     </div>
     
-
     <div class="question">
-        <p><strong>سؤال 21:</strong> متن دقیق سؤال شماره 21 در اینجا قرار می‌گیرد.</p>
+        <strong>سؤال 21:</strong> سؤال شماره 21 (متن دقیق اینجا قرار می‌گیرد)<br>
         <div class="options">
-            <label><input type="radio" name="q21" value="0"> کاملاً مخالفم</label><label><input type="radio" name="q21" value="1"> مخالفم</label><label><input type="radio" name="q21" value="2"> نسبتاً مخالفم</label><label><input type="radio" name="q21" value="3"> خنثی</label><label><input type="radio" name="q21" value="4"> نسبتاً موافقم</label><label><input type="radio" name="q21" value="5"> موافقم</label><label><input type="radio" name="q21" value="6"> کاملاً موافقم</label>
+            <label><input type="radio" name="q21" value="-3"> کاملاً مخالفم</label>
+            <label><input type="radio" name="q21" value="-2"> مخالفم</label>
+            <label><input type="radio" name="q21" value="-1"> نسبتاً مخالفم</label>
+            <label><input type="radio" name="q21" value="0"> خنثی</label>
+            <label><input type="radio" name="q21" value="1"> نسبتاً موافقم</label>
+            <label><input type="radio" name="q21" value="2"> موافقم</label>
+            <label><input type="radio" name="q21" value="3"> کاملاً موافقم</label>
         </div>
     </div>
     
-
     <div class="question">
-        <p><strong>سؤال 22:</strong> متن دقیق سؤال شماره 22 در اینجا قرار می‌گیرد.</p>
+        <strong>سؤال 22:</strong> سؤال شماره 22 (متن دقیق اینجا قرار می‌گیرد)<br>
         <div class="options">
-            <label><input type="radio" name="q22" value="0"> کاملاً مخالفم</label><label><input type="radio" name="q22" value="1"> مخالفم</label><label><input type="radio" name="q22" value="2"> نسبتاً مخالفم</label><label><input type="radio" name="q22" value="3"> خنثی</label><label><input type="radio" name="q22" value="4"> نسبتاً موافقم</label><label><input type="radio" name="q22" value="5"> موافقم</label><label><input type="radio" name="q22" value="6"> کاملاً موافقم</label>
+            <label><input type="radio" name="q22" value="-3"> کاملاً مخالفم</label>
+            <label><input type="radio" name="q22" value="-2"> مخالفم</label>
+            <label><input type="radio" name="q22" value="-1"> نسبتاً مخالفم</label>
+            <label><input type="radio" name="q22" value="0"> خنثی</label>
+            <label><input type="radio" name="q22" value="1"> نسبتاً موافقم</label>
+            <label><input type="radio" name="q22" value="2"> موافقم</label>
+            <label><input type="radio" name="q22" value="3"> کاملاً موافقم</label>
         </div>
     </div>
     
-
     <div class="question">
-        <p><strong>سؤال 23:</strong> متن دقیق سؤال شماره 23 در اینجا قرار می‌گیرد.</p>
+        <strong>سؤال 23:</strong> سؤال شماره 23 (متن دقیق اینجا قرار می‌گیرد)<br>
         <div class="options">
-            <label><input type="radio" name="q23" value="0"> کاملاً مخالفم</label><label><input type="radio" name="q23" value="1"> مخالفم</label><label><input type="radio" name="q23" value="2"> نسبتاً مخالفم</label><label><input type="radio" name="q23" value="3"> خنثی</label><label><input type="radio" name="q23" value="4"> نسبتاً موافقم</label><label><input type="radio" name="q23" value="5"> موافقم</label><label><input type="radio" name="q23" value="6"> کاملاً موافقم</label>
+            <label><input type="radio" name="q23" value="-3"> کاملاً مخالفم</label>
+            <label><input type="radio" name="q23" value="-2"> مخالفم</label>
+            <label><input type="radio" name="q23" value="-1"> نسبتاً مخالفم</label>
+            <label><input type="radio" name="q23" value="0"> خنثی</label>
+            <label><input type="radio" name="q23" value="1"> نسبتاً موافقم</label>
+            <label><input type="radio" name="q23" value="2"> موافقم</label>
+            <label><input type="radio" name="q23" value="3"> کاملاً موافقم</label>
         </div>
     </div>
     
-
     <div class="question">
-        <p><strong>سؤال 24:</strong> متن دقیق سؤال شماره 24 در اینجا قرار می‌گیرد.</p>
+        <strong>سؤال 24:</strong> سؤال شماره 24 (متن دقیق اینجا قرار می‌گیرد)<br>
         <div class="options">
-            <label><input type="radio" name="q24" value="0"> کاملاً مخالفم</label><label><input type="radio" name="q24" value="1"> مخالفم</label><label><input type="radio" name="q24" value="2"> نسبتاً مخالفم</label><label><input type="radio" name="q24" value="3"> خنثی</label><label><input type="radio" name="q24" value="4"> نسبتاً موافقم</label><label><input type="radio" name="q24" value="5"> موافقم</label><label><input type="radio" name="q24" value="6"> کاملاً موافقم</label>
+            <label><input type="radio" name="q24" value="-3"> کاملاً مخالفم</label>
+            <label><input type="radio" name="q24" value="-2"> مخالفم</label>
+            <label><input type="radio" name="q24" value="-1"> نسبتاً مخالفم</label>
+            <label><input type="radio" name="q24" value="0"> خنثی</label>
+            <label><input type="radio" name="q24" value="1"> نسبتاً موافقم</label>
+            <label><input type="radio" name="q24" value="2"> موافقم</label>
+            <label><input type="radio" name="q24" value="3"> کاملاً موافقم</label>
         </div>
     </div>
     
-
     <div class="question">
-        <p><strong>سؤال 25:</strong> متن دقیق سؤال شماره 25 در اینجا قرار می‌گیرد.</p>
+        <strong>سؤال 25:</strong> سؤال شماره 25 (متن دقیق اینجا قرار می‌گیرد)<br>
         <div class="options">
-            <label><input type="radio" name="q25" value="0"> کاملاً مخالفم</label><label><input type="radio" name="q25" value="1"> مخالفم</label><label><input type="radio" name="q25" value="2"> نسبتاً مخالفم</label><label><input type="radio" name="q25" value="3"> خنثی</label><label><input type="radio" name="q25" value="4"> نسبتاً موافقم</label><label><input type="radio" name="q25" value="5"> موافقم</label><label><input type="radio" name="q25" value="6"> کاملاً موافقم</label>
+            <label><input type="radio" name="q25" value="-3"> کاملاً مخالفم</label>
+            <label><input type="radio" name="q25" value="-2"> مخالفم</label>
+            <label><input type="radio" name="q25" value="-1"> نسبتاً مخالفم</label>
+            <label><input type="radio" name="q25" value="0"> خنثی</label>
+            <label><input type="radio" name="q25" value="1"> نسبتاً موافقم</label>
+            <label><input type="radio" name="q25" value="2"> موافقم</label>
+            <label><input type="radio" name="q25" value="3"> کاملاً موافقم</label>
         </div>
     </div>
     
-
     <div class="question">
-        <p><strong>سؤال 26:</strong> متن دقیق سؤال شماره 26 در اینجا قرار می‌گیرد.</p>
+        <strong>سؤال 26:</strong> سؤال شماره 26 (متن دقیق اینجا قرار می‌گیرد)<br>
         <div class="options">
-            <label><input type="radio" name="q26" value="0"> کاملاً مخالفم</label><label><input type="radio" name="q26" value="1"> مخالفم</label><label><input type="radio" name="q26" value="2"> نسبتاً مخالفم</label><label><input type="radio" name="q26" value="3"> خنثی</label><label><input type="radio" name="q26" value="4"> نسبتاً موافقم</label><label><input type="radio" name="q26" value="5"> موافقم</label><label><input type="radio" name="q26" value="6"> کاملاً موافقم</label>
+            <label><input type="radio" name="q26" value="-3"> کاملاً مخالفم</label>
+            <label><input type="radio" name="q26" value="-2"> مخالفم</label>
+            <label><input type="radio" name="q26" value="-1"> نسبتاً مخالفم</label>
+            <label><input type="radio" name="q26" value="0"> خنثی</label>
+            <label><input type="radio" name="q26" value="1"> نسبتاً موافقم</label>
+            <label><input type="radio" name="q26" value="2"> موافقم</label>
+            <label><input type="radio" name="q26" value="3"> کاملاً موافقم</label>
         </div>
     </div>
     
-
     <div class="question">
-        <p><strong>سؤال 27:</strong> متن دقیق سؤال شماره 27 در اینجا قرار می‌گیرد.</p>
+        <strong>سؤال 27:</strong> سؤال شماره 27 (متن دقیق اینجا قرار می‌گیرد)<br>
         <div class="options">
-            <label><input type="radio" name="q27" value="0"> کاملاً مخالفم</label><label><input type="radio" name="q27" value="1"> مخالفم</label><label><input type="radio" name="q27" value="2"> نسبتاً مخالفم</label><label><input type="radio" name="q27" value="3"> خنثی</label><label><input type="radio" name="q27" value="4"> نسبتاً موافقم</label><label><input type="radio" name="q27" value="5"> موافقم</label><label><input type="radio" name="q27" value="6"> کاملاً موافقم</label>
+            <label><input type="radio" name="q27" value="-3"> کاملاً مخالفم</label>
+            <label><input type="radio" name="q27" value="-2"> مخالفم</label>
+            <label><input type="radio" name="q27" value="-1"> نسبتاً مخالفم</label>
+            <label><input type="radio" name="q27" value="0"> خنثی</label>
+            <label><input type="radio" name="q27" value="1"> نسبتاً موافقم</label>
+            <label><input type="radio" name="q27" value="2"> موافقم</label>
+            <label><input type="radio" name="q27" value="3"> کاملاً موافقم</label>
         </div>
     </div>
     
-
     <div class="question">
-        <p><strong>سؤال 28:</strong> متن دقیق سؤال شماره 28 در اینجا قرار می‌گیرد.</p>
+        <strong>سؤال 28:</strong> سؤال شماره 28 (متن دقیق اینجا قرار می‌گیرد)<br>
         <div class="options">
-            <label><input type="radio" name="q28" value="0"> کاملاً مخالفم</label><label><input type="radio" name="q28" value="1"> مخالفم</label><label><input type="radio" name="q28" value="2"> نسبتاً مخالفم</label><label><input type="radio" name="q28" value="3"> خنثی</label><label><input type="radio" name="q28" value="4"> نسبتاً موافقم</label><label><input type="radio" name="q28" value="5"> موافقم</label><label><input type="radio" name="q28" value="6"> کاملاً موافقم</label>
+            <label><input type="radio" name="q28" value="-3"> کاملاً مخالفم</label>
+            <label><input type="radio" name="q28" value="-2"> مخالفم</label>
+            <label><input type="radio" name="q28" value="-1"> نسبتاً مخالفم</label>
+            <label><input type="radio" name="q28" value="0"> خنثی</label>
+            <label><input type="radio" name="q28" value="1"> نسبتاً موافقم</label>
+            <label><input type="radio" name="q28" value="2"> موافقم</label>
+            <label><input type="radio" name="q28" value="3"> کاملاً موافقم</label>
         </div>
     </div>
     
-
     <div class="question">
-        <p><strong>سؤال 29:</strong> متن دقیق سؤال شماره 29 در اینجا قرار می‌گیرد.</p>
+        <strong>سؤال 29:</strong> سؤال شماره 29 (متن دقیق اینجا قرار می‌گیرد)<br>
         <div class="options">
-            <label><input type="radio" name="q29" value="0"> کاملاً مخالفم</label><label><input type="radio" name="q29" value="1"> مخالفم</label><label><input type="radio" name="q29" value="2"> نسبتاً مخالفم</label><label><input type="radio" name="q29" value="3"> خنثی</label><label><input type="radio" name="q29" value="4"> نسبتاً موافقم</label><label><input type="radio" name="q29" value="5"> موافقم</label><label><input type="radio" name="q29" value="6"> کاملاً موافقم</label>
+            <label><input type="radio" name="q29" value="-3"> کاملاً مخالفم</label>
+            <label><input type="radio" name="q29" value="-2"> مخالفم</label>
+            <label><input type="radio" name="q29" value="-1"> نسبتاً مخالفم</label>
+            <label><input type="radio" name="q29" value="0"> خنثی</label>
+            <label><input type="radio" name="q29" value="1"> نسبتاً موافقم</label>
+            <label><input type="radio" name="q29" value="2"> موافقم</label>
+            <label><input type="radio" name="q29" value="3"> کاملاً موافقم</label>
         </div>
     </div>
     
-
     <div class="question">
-        <p><strong>سؤال 30:</strong> متن دقیق سؤال شماره 30 در اینجا قرار می‌گیرد.</p>
+        <strong>سؤال 30:</strong> سؤال شماره 30 (متن دقیق اینجا قرار می‌گیرد)<br>
         <div class="options">
-            <label><input type="radio" name="q30" value="0"> کاملاً مخالفم</label><label><input type="radio" name="q30" value="1"> مخالفم</label><label><input type="radio" name="q30" value="2"> نسبتاً مخالفم</label><label><input type="radio" name="q30" value="3"> خنثی</label><label><input type="radio" name="q30" value="4"> نسبتاً موافقم</label><label><input type="radio" name="q30" value="5"> موافقم</label><label><input type="radio" name="q30" value="6"> کاملاً موافقم</label>
+            <label><input type="radio" name="q30" value="-3"> کاملاً مخالفم</label>
+            <label><input type="radio" name="q30" value="-2"> مخالفم</label>
+            <label><input type="radio" name="q30" value="-1"> نسبتاً مخالفم</label>
+            <label><input type="radio" name="q30" value="0"> خنثی</label>
+            <label><input type="radio" name="q30" value="1"> نسبتاً موافقم</label>
+            <label><input type="radio" name="q30" value="2"> موافقم</label>
+            <label><input type="radio" name="q30" value="3"> کاملاً موافقم</label>
         </div>
     </div>
     
-
     <div class="question">
-        <p><strong>سؤال 31:</strong> متن دقیق سؤال شماره 31 در اینجا قرار می‌گیرد.</p>
+        <strong>سؤال 31:</strong> سؤال شماره 31 (متن دقیق اینجا قرار می‌گیرد)<br>
         <div class="options">
-            <label><input type="radio" name="q31" value="0"> کاملاً مخالفم</label><label><input type="radio" name="q31" value="1"> مخالفم</label><label><input type="radio" name="q31" value="2"> نسبتاً مخالفم</label><label><input type="radio" name="q31" value="3"> خنثی</label><label><input type="radio" name="q31" value="4"> نسبتاً موافقم</label><label><input type="radio" name="q31" value="5"> موافقم</label><label><input type="radio" name="q31" value="6"> کاملاً موافقم</label>
+            <label><input type="radio" name="q31" value="-3"> کاملاً مخالفم</label>
+            <label><input type="radio" name="q31" value="-2"> مخالفم</label>
+            <label><input type="radio" name="q31" value="-1"> نسبتاً مخالفم</label>
+            <label><input type="radio" name="q31" value="0"> خنثی</label>
+            <label><input type="radio" name="q31" value="1"> نسبتاً موافقم</label>
+            <label><input type="radio" name="q31" value="2"> موافقم</label>
+            <label><input type="radio" name="q31" value="3"> کاملاً موافقم</label>
         </div>
     </div>
     
-
     <div class="question">
-        <p><strong>سؤال 32:</strong> متن دقیق سؤال شماره 32 در اینجا قرار می‌گیرد.</p>
+        <strong>سؤال 32:</strong> سؤال شماره 32 (متن دقیق اینجا قرار می‌گیرد)<br>
         <div class="options">
-            <label><input type="radio" name="q32" value="0"> کاملاً مخالفم</label><label><input type="radio" name="q32" value="1"> مخالفم</label><label><input type="radio" name="q32" value="2"> نسبتاً مخالفم</label><label><input type="radio" name="q32" value="3"> خنثی</label><label><input type="radio" name="q32" value="4"> نسبتاً موافقم</label><label><input type="radio" name="q32" value="5"> موافقم</label><label><input type="radio" name="q32" value="6"> کاملاً موافقم</label>
+            <label><input type="radio" name="q32" value="-3"> کاملاً مخالفم</label>
+            <label><input type="radio" name="q32" value="-2"> مخالفم</label>
+            <label><input type="radio" name="q32" value="-1"> نسبتاً مخالفم</label>
+            <label><input type="radio" name="q32" value="0"> خنثی</label>
+            <label><input type="radio" name="q32" value="1"> نسبتاً موافقم</label>
+            <label><input type="radio" name="q32" value="2"> موافقم</label>
+            <label><input type="radio" name="q32" value="3"> کاملاً موافقم</label>
         </div>
     </div>
     
-
     <div class="question">
-        <p><strong>سؤال 33:</strong> متن دقیق سؤال شماره 33 در اینجا قرار می‌گیرد.</p>
+        <strong>سؤال 33:</strong> سؤال شماره 33 (متن دقیق اینجا قرار می‌گیرد)<br>
         <div class="options">
-            <label><input type="radio" name="q33" value="0"> کاملاً مخالفم</label><label><input type="radio" name="q33" value="1"> مخالفم</label><label><input type="radio" name="q33" value="2"> نسبتاً مخالفم</label><label><input type="radio" name="q33" value="3"> خنثی</label><label><input type="radio" name="q33" value="4"> نسبتاً موافقم</label><label><input type="radio" name="q33" value="5"> موافقم</label><label><input type="radio" name="q33" value="6"> کاملاً موافقم</label>
+            <label><input type="radio" name="q33" value="-3"> کاملاً مخالفم</label>
+            <label><input type="radio" name="q33" value="-2"> مخالفم</label>
+            <label><input type="radio" name="q33" value="-1"> نسبتاً مخالفم</label>
+            <label><input type="radio" name="q33" value="0"> خنثی</label>
+            <label><input type="radio" name="q33" value="1"> نسبتاً موافقم</label>
+            <label><input type="radio" name="q33" value="2"> موافقم</label>
+            <label><input type="radio" name="q33" value="3"> کاملاً موافقم</label>
         </div>
     </div>
     
-
     <div class="question">
-        <p><strong>سؤال 34:</strong> متن دقیق سؤال شماره 34 در اینجا قرار می‌گیرد.</p>
+        <strong>سؤال 34:</strong> سؤال شماره 34 (متن دقیق اینجا قرار می‌گیرد)<br>
         <div class="options">
-            <label><input type="radio" name="q34" value="0"> کاملاً مخالفم</label><label><input type="radio" name="q34" value="1"> مخالفم</label><label><input type="radio" name="q34" value="2"> نسبتاً مخالفم</label><label><input type="radio" name="q34" value="3"> خنثی</label><label><input type="radio" name="q34" value="4"> نسبتاً موافقم</label><label><input type="radio" name="q34" value="5"> موافقم</label><label><input type="radio" name="q34" value="6"> کاملاً موافقم</label>
+            <label><input type="radio" name="q34" value="-3"> کاملاً مخالفم</label>
+            <label><input type="radio" name="q34" value="-2"> مخالفم</label>
+            <label><input type="radio" name="q34" value="-1"> نسبتاً مخالفم</label>
+            <label><input type="radio" name="q34" value="0"> خنثی</label>
+            <label><input type="radio" name="q34" value="1"> نسبتاً موافقم</label>
+            <label><input type="radio" name="q34" value="2"> موافقم</label>
+            <label><input type="radio" name="q34" value="3"> کاملاً موافقم</label>
         </div>
     </div>
     
-
     <div class="question">
-        <p><strong>سؤال 35:</strong> متن دقیق سؤال شماره 35 در اینجا قرار می‌گیرد.</p>
+        <strong>سؤال 35:</strong> سؤال شماره 35 (متن دقیق اینجا قرار می‌گیرد)<br>
         <div class="options">
-            <label><input type="radio" name="q35" value="0"> کاملاً مخالفم</label><label><input type="radio" name="q35" value="1"> مخالفم</label><label><input type="radio" name="q35" value="2"> نسبتاً مخالفم</label><label><input type="radio" name="q35" value="3"> خنثی</label><label><input type="radio" name="q35" value="4"> نسبتاً موافقم</label><label><input type="radio" name="q35" value="5"> موافقم</label><label><input type="radio" name="q35" value="6"> کاملاً موافقم</label>
+            <label><input type="radio" name="q35" value="-3"> کاملاً مخالفم</label>
+            <label><input type="radio" name="q35" value="-2"> مخالفم</label>
+            <label><input type="radio" name="q35" value="-1"> نسبتاً مخالفم</label>
+            <label><input type="radio" name="q35" value="0"> خنثی</label>
+            <label><input type="radio" name="q35" value="1"> نسبتاً موافقم</label>
+            <label><input type="radio" name="q35" value="2"> موافقم</label>
+            <label><input type="radio" name="q35" value="3"> کاملاً موافقم</label>
         </div>
     </div>
     
-
     <div class="question">
-        <p><strong>سؤال 36:</strong> متن دقیق سؤال شماره 36 در اینجا قرار می‌گیرد.</p>
+        <strong>سؤال 36:</strong> سؤال شماره 36 (متن دقیق اینجا قرار می‌گیرد)<br>
         <div class="options">
-            <label><input type="radio" name="q36" value="0"> کاملاً مخالفم</label><label><input type="radio" name="q36" value="1"> مخالفم</label><label><input type="radio" name="q36" value="2"> نسبتاً مخالفم</label><label><input type="radio" name="q36" value="3"> خنثی</label><label><input type="radio" name="q36" value="4"> نسبتاً موافقم</label><label><input type="radio" name="q36" value="5"> موافقم</label><label><input type="radio" name="q36" value="6"> کاملاً موافقم</label>
+            <label><input type="radio" name="q36" value="-3"> کاملاً مخالفم</label>
+            <label><input type="radio" name="q36" value="-2"> مخالفم</label>
+            <label><input type="radio" name="q36" value="-1"> نسبتاً مخالفم</label>
+            <label><input type="radio" name="q36" value="0"> خنثی</label>
+            <label><input type="radio" name="q36" value="1"> نسبتاً موافقم</label>
+            <label><input type="radio" name="q36" value="2"> موافقم</label>
+            <label><input type="radio" name="q36" value="3"> کاملاً موافقم</label>
         </div>
     </div>
     
-
     <div class="question">
-        <p><strong>سؤال 37:</strong> متن دقیق سؤال شماره 37 در اینجا قرار می‌گیرد.</p>
+        <strong>سؤال 37:</strong> سؤال شماره 37 (متن دقیق اینجا قرار می‌گیرد)<br>
         <div class="options">
-            <label><input type="radio" name="q37" value="0"> کاملاً مخالفم</label><label><input type="radio" name="q37" value="1"> مخالفم</label><label><input type="radio" name="q37" value="2"> نسبتاً مخالفم</label><label><input type="radio" name="q37" value="3"> خنثی</label><label><input type="radio" name="q37" value="4"> نسبتاً موافقم</label><label><input type="radio" name="q37" value="5"> موافقم</label><label><input type="radio" name="q37" value="6"> کاملاً موافقم</label>
+            <label><input type="radio" name="q37" value="-3"> کاملاً مخالفم</label>
+            <label><input type="radio" name="q37" value="-2"> مخالفم</label>
+            <label><input type="radio" name="q37" value="-1"> نسبتاً مخالفم</label>
+            <label><input type="radio" name="q37" value="0"> خنثی</label>
+            <label><input type="radio" name="q37" value="1"> نسبتاً موافقم</label>
+            <label><input type="radio" name="q37" value="2"> موافقم</label>
+            <label><input type="radio" name="q37" value="3"> کاملاً موافقم</label>
         </div>
     </div>
     
-
     <div class="question">
-        <p><strong>سؤال 38:</strong> متن دقیق سؤال شماره 38 در اینجا قرار می‌گیرد.</p>
+        <strong>سؤال 38:</strong> سؤال شماره 38 (متن دقیق اینجا قرار می‌گیرد)<br>
         <div class="options">
-            <label><input type="radio" name="q38" value="0"> کاملاً مخالفم</label><label><input type="radio" name="q38" value="1"> مخالفم</label><label><input type="radio" name="q38" value="2"> نسبتاً مخالفم</label><label><input type="radio" name="q38" value="3"> خنثی</label><label><input type="radio" name="q38" value="4"> نسبتاً موافقم</label><label><input type="radio" name="q38" value="5"> موافقم</label><label><input type="radio" name="q38" value="6"> کاملاً موافقم</label>
+            <label><input type="radio" name="q38" value="-3"> کاملاً مخالفم</label>
+            <label><input type="radio" name="q38" value="-2"> مخالفم</label>
+            <label><input type="radio" name="q38" value="-1"> نسبتاً مخالفم</label>
+            <label><input type="radio" name="q38" value="0"> خنثی</label>
+            <label><input type="radio" name="q38" value="1"> نسبتاً موافقم</label>
+            <label><input type="radio" name="q38" value="2"> موافقم</label>
+            <label><input type="radio" name="q38" value="3"> کاملاً موافقم</label>
         </div>
     </div>
     
-
     <div class="question">
-        <p><strong>سؤال 39:</strong> متن دقیق سؤال شماره 39 در اینجا قرار می‌گیرد.</p>
+        <strong>سؤال 39:</strong> سؤال شماره 39 (متن دقیق اینجا قرار می‌گیرد)<br>
         <div class="options">
-            <label><input type="radio" name="q39" value="0"> کاملاً مخالفم</label><label><input type="radio" name="q39" value="1"> مخالفم</label><label><input type="radio" name="q39" value="2"> نسبتاً مخالفم</label><label><input type="radio" name="q39" value="3"> خنثی</label><label><input type="radio" name="q39" value="4"> نسبتاً موافقم</label><label><input type="radio" name="q39" value="5"> موافقم</label><label><input type="radio" name="q39" value="6"> کاملاً موافقم</label>
+            <label><input type="radio" name="q39" value="-3"> کاملاً مخالفم</label>
+            <label><input type="radio" name="q39" value="-2"> مخالفم</label>
+            <label><input type="radio" name="q39" value="-1"> نسبتاً مخالفم</label>
+            <label><input type="radio" name="q39" value="0"> خنثی</label>
+            <label><input type="radio" name="q39" value="1"> نسبتاً موافقم</label>
+            <label><input type="radio" name="q39" value="2"> موافقم</label>
+            <label><input type="radio" name="q39" value="3"> کاملاً موافقم</label>
         </div>
     </div>
     
-
     <div class="question">
-        <p><strong>سؤال 40:</strong> متن دقیق سؤال شماره 40 در اینجا قرار می‌گیرد.</p>
+        <strong>سؤال 40:</strong> سؤال شماره 40 (متن دقیق اینجا قرار می‌گیرد)<br>
         <div class="options">
-            <label><input type="radio" name="q40" value="0"> کاملاً مخالفم</label><label><input type="radio" name="q40" value="1"> مخالفم</label><label><input type="radio" name="q40" value="2"> نسبتاً مخالفم</label><label><input type="radio" name="q40" value="3"> خنثی</label><label><input type="radio" name="q40" value="4"> نسبتاً موافقم</label><label><input type="radio" name="q40" value="5"> موافقم</label><label><input type="radio" name="q40" value="6"> کاملاً موافقم</label>
+            <label><input type="radio" name="q40" value="-3"> کاملاً مخالفم</label>
+            <label><input type="radio" name="q40" value="-2"> مخالفم</label>
+            <label><input type="radio" name="q40" value="-1"> نسبتاً مخالفم</label>
+            <label><input type="radio" name="q40" value="0"> خنثی</label>
+            <label><input type="radio" name="q40" value="1"> نسبتاً موافقم</label>
+            <label><input type="radio" name="q40" value="2"> موافقم</label>
+            <label><input type="radio" name="q40" value="3"> کاملاً موافقم</label>
         </div>
     </div>
     
-
     <div class="question">
-        <p><strong>سؤال 41:</strong> متن دقیق سؤال شماره 41 در اینجا قرار می‌گیرد.</p>
+        <strong>سؤال 41:</strong> سؤال شماره 41 (متن دقیق اینجا قرار می‌گیرد)<br>
         <div class="options">
-            <label><input type="radio" name="q41" value="0"> کاملاً مخالفم</label><label><input type="radio" name="q41" value="1"> مخالفم</label><label><input type="radio" name="q41" value="2"> نسبتاً مخالفم</label><label><input type="radio" name="q41" value="3"> خنثی</label><label><input type="radio" name="q41" value="4"> نسبتاً موافقم</label><label><input type="radio" name="q41" value="5"> موافقم</label><label><input type="radio" name="q41" value="6"> کاملاً موافقم</label>
+            <label><input type="radio" name="q41" value="-3"> کاملاً مخالفم</label>
+            <label><input type="radio" name="q41" value="-2"> مخالفم</label>
+            <label><input type="radio" name="q41" value="-1"> نسبتاً مخالفم</label>
+            <label><input type="radio" name="q41" value="0"> خنثی</label>
+            <label><input type="radio" name="q41" value="1"> نسبتاً موافقم</label>
+            <label><input type="radio" name="q41" value="2"> موافقم</label>
+            <label><input type="radio" name="q41" value="3"> کاملاً موافقم</label>
         </div>
     </div>
     
-
     <div class="question">
-        <p><strong>سؤال 42:</strong> متن دقیق سؤال شماره 42 در اینجا قرار می‌گیرد.</p>
+        <strong>سؤال 42:</strong> سؤال شماره 42 (متن دقیق اینجا قرار می‌گیرد)<br>
         <div class="options">
-            <label><input type="radio" name="q42" value="0"> کاملاً مخالفم</label><label><input type="radio" name="q42" value="1"> مخالفم</label><label><input type="radio" name="q42" value="2"> نسبتاً مخالفم</label><label><input type="radio" name="q42" value="3"> خنثی</label><label><input type="radio" name="q42" value="4"> نسبتاً موافقم</label><label><input type="radio" name="q42" value="5"> موافقم</label><label><input type="radio" name="q42" value="6"> کاملاً موافقم</label>
+            <label><input type="radio" name="q42" value="-3"> کاملاً مخالفم</label>
+            <label><input type="radio" name="q42" value="-2"> مخالفم</label>
+            <label><input type="radio" name="q42" value="-1"> نسبتاً مخالفم</label>
+            <label><input type="radio" name="q42" value="0"> خنثی</label>
+            <label><input type="radio" name="q42" value="1"> نسبتاً موافقم</label>
+            <label><input type="radio" name="q42" value="2"> موافقم</label>
+            <label><input type="radio" name="q42" value="3"> کاملاً موافقم</label>
         </div>
     </div>
     
-
     <div class="question">
-        <p><strong>سؤال 43:</strong> متن دقیق سؤال شماره 43 در اینجا قرار می‌گیرد.</p>
+        <strong>سؤال 43:</strong> سؤال شماره 43 (متن دقیق اینجا قرار می‌گیرد)<br>
         <div class="options">
-            <label><input type="radio" name="q43" value="0"> کاملاً مخالفم</label><label><input type="radio" name="q43" value="1"> مخالفم</label><label><input type="radio" name="q43" value="2"> نسبتاً مخالفم</label><label><input type="radio" name="q43" value="3"> خنثی</label><label><input type="radio" name="q43" value="4"> نسبتاً موافقم</label><label><input type="radio" name="q43" value="5"> موافقم</label><label><input type="radio" name="q43" value="6"> کاملاً موافقم</label>
+            <label><input type="radio" name="q43" value="-3"> کاملاً مخالفم</label>
+            <label><input type="radio" name="q43" value="-2"> مخالفم</label>
+            <label><input type="radio" name="q43" value="-1"> نسبتاً مخالفم</label>
+            <label><input type="radio" name="q43" value="0"> خنثی</label>
+            <label><input type="radio" name="q43" value="1"> نسبتاً موافقم</label>
+            <label><input type="radio" name="q43" value="2"> موافقم</label>
+            <label><input type="radio" name="q43" value="3"> کاملاً موافقم</label>
         </div>
     </div>
     
-
     <div class="question">
-        <p><strong>سؤال 44:</strong> متن دقیق سؤال شماره 44 در اینجا قرار می‌گیرد.</p>
+        <strong>سؤال 44:</strong> سؤال شماره 44 (متن دقیق اینجا قرار می‌گیرد)<br>
         <div class="options">
-            <label><input type="radio" name="q44" value="0"> کاملاً مخالفم</label><label><input type="radio" name="q44" value="1"> مخالفم</label><label><input type="radio" name="q44" value="2"> نسبتاً مخالفم</label><label><input type="radio" name="q44" value="3"> خنثی</label><label><input type="radio" name="q44" value="4"> نسبتاً موافقم</label><label><input type="radio" name="q44" value="5"> موافقم</label><label><input type="radio" name="q44" value="6"> کاملاً موافقم</label>
+            <label><input type="radio" name="q44" value="-3"> کاملاً مخالفم</label>
+            <label><input type="radio" name="q44" value="-2"> مخالفم</label>
+            <label><input type="radio" name="q44" value="-1"> نسبتاً مخالفم</label>
+            <label><input type="radio" name="q44" value="0"> خنثی</label>
+            <label><input type="radio" name="q44" value="1"> نسبتاً موافقم</label>
+            <label><input type="radio" name="q44" value="2"> موافقم</label>
+            <label><input type="radio" name="q44" value="3"> کاملاً موافقم</label>
         </div>
     </div>
     
-
     <div class="question">
-        <p><strong>سؤال 45:</strong> متن دقیق سؤال شماره 45 در اینجا قرار می‌گیرد.</p>
+        <strong>سؤال 45:</strong> سؤال شماره 45 (متن دقیق اینجا قرار می‌گیرد)<br>
         <div class="options">
-            <label><input type="radio" name="q45" value="0"> کاملاً مخالفم</label><label><input type="radio" name="q45" value="1"> مخالفم</label><label><input type="radio" name="q45" value="2"> نسبتاً مخالفم</label><label><input type="radio" name="q45" value="3"> خنثی</label><label><input type="radio" name="q45" value="4"> نسبتاً موافقم</label><label><input type="radio" name="q45" value="5"> موافقم</label><label><input type="radio" name="q45" value="6"> کاملاً موافقم</label>
+            <label><input type="radio" name="q45" value="-3"> کاملاً مخالفم</label>
+            <label><input type="radio" name="q45" value="-2"> مخالفم</label>
+            <label><input type="radio" name="q45" value="-1"> نسبتاً مخالفم</label>
+            <label><input type="radio" name="q45" value="0"> خنثی</label>
+            <label><input type="radio" name="q45" value="1"> نسبتاً موافقم</label>
+            <label><input type="radio" name="q45" value="2"> موافقم</label>
+            <label><input type="radio" name="q45" value="3"> کاملاً موافقم</label>
         </div>
     </div>
     
-
     <div class="question">
-        <p><strong>سؤال 46:</strong> متن دقیق سؤال شماره 46 در اینجا قرار می‌گیرد.</p>
+        <strong>سؤال 46:</strong> سؤال شماره 46 (متن دقیق اینجا قرار می‌گیرد)<br>
         <div class="options">
-            <label><input type="radio" name="q46" value="0"> کاملاً مخالفم</label><label><input type="radio" name="q46" value="1"> مخالفم</label><label><input type="radio" name="q46" value="2"> نسبتاً مخالفم</label><label><input type="radio" name="q46" value="3"> خنثی</label><label><input type="radio" name="q46" value="4"> نسبتاً موافقم</label><label><input type="radio" name="q46" value="5"> موافقم</label><label><input type="radio" name="q46" value="6"> کاملاً موافقم</label>
+            <label><input type="radio" name="q46" value="-3"> کاملاً مخالفم</label>
+            <label><input type="radio" name="q46" value="-2"> مخالفم</label>
+            <label><input type="radio" name="q46" value="-1"> نسبتاً مخالفم</label>
+            <label><input type="radio" name="q46" value="0"> خنثی</label>
+            <label><input type="radio" name="q46" value="1"> نسبتاً موافقم</label>
+            <label><input type="radio" name="q46" value="2"> موافقم</label>
+            <label><input type="radio" name="q46" value="3"> کاملاً موافقم</label>
         </div>
     </div>
     
-
     <div class="question">
-        <p><strong>سؤال 47:</strong> متن دقیق سؤال شماره 47 در اینجا قرار می‌گیرد.</p>
+        <strong>سؤال 47:</strong> سؤال شماره 47 (متن دقیق اینجا قرار می‌گیرد)<br>
         <div class="options">
-            <label><input type="radio" name="q47" value="0"> کاملاً مخالفم</label><label><input type="radio" name="q47" value="1"> مخالفم</label><label><input type="radio" name="q47" value="2"> نسبتاً مخالفم</label><label><input type="radio" name="q47" value="3"> خنثی</label><label><input type="radio" name="q47" value="4"> نسبتاً موافقم</label><label><input type="radio" name="q47" value="5"> موافقم</label><label><input type="radio" name="q47" value="6"> کاملاً موافقم</label>
+            <label><input type="radio" name="q47" value="-3"> کاملاً مخالفم</label>
+            <label><input type="radio" name="q47" value="-2"> مخالفم</label>
+            <label><input type="radio" name="q47" value="-1"> نسبتاً مخالفم</label>
+            <label><input type="radio" name="q47" value="0"> خنثی</label>
+            <label><input type="radio" name="q47" value="1"> نسبتاً موافقم</label>
+            <label><input type="radio" name="q47" value="2"> موافقم</label>
+            <label><input type="radio" name="q47" value="3"> کاملاً موافقم</label>
         </div>
     </div>
     
-
     <div class="question">
-        <p><strong>سؤال 48:</strong> متن دقیق سؤال شماره 48 در اینجا قرار می‌گیرد.</p>
+        <strong>سؤال 48:</strong> سؤال شماره 48 (متن دقیق اینجا قرار می‌گیرد)<br>
         <div class="options">
-            <label><input type="radio" name="q48" value="0"> کاملاً مخالفم</label><label><input type="radio" name="q48" value="1"> مخالفم</label><label><input type="radio" name="q48" value="2"> نسبتاً مخالفم</label><label><input type="radio" name="q48" value="3"> خنثی</label><label><input type="radio" name="q48" value="4"> نسبتاً موافقم</label><label><input type="radio" name="q48" value="5"> موافقم</label><label><input type="radio" name="q48" value="6"> کاملاً موافقم</label>
+            <label><input type="radio" name="q48" value="-3"> کاملاً مخالفم</label>
+            <label><input type="radio" name="q48" value="-2"> مخالفم</label>
+            <label><input type="radio" name="q48" value="-1"> نسبتاً مخالفم</label>
+            <label><input type="radio" name="q48" value="0"> خنثی</label>
+            <label><input type="radio" name="q48" value="1"> نسبتاً موافقم</label>
+            <label><input type="radio" name="q48" value="2"> موافقم</label>
+            <label><input type="radio" name="q48" value="3"> کاملاً موافقم</label>
         </div>
     </div>
     
-
     <div class="question">
-        <p><strong>سؤال 49:</strong> متن دقیق سؤال شماره 49 در اینجا قرار می‌گیرد.</p>
+        <strong>سؤال 49:</strong> سؤال شماره 49 (متن دقیق اینجا قرار می‌گیرد)<br>
         <div class="options">
-            <label><input type="radio" name="q49" value="0"> کاملاً مخالفم</label><label><input type="radio" name="q49" value="1"> مخالفم</label><label><input type="radio" name="q49" value="2"> نسبتاً مخالفم</label><label><input type="radio" name="q49" value="3"> خنثی</label><label><input type="radio" name="q49" value="4"> نسبتاً موافقم</label><label><input type="radio" name="q49" value="5"> موافقم</label><label><input type="radio" name="q49" value="6"> کاملاً موافقم</label>
+            <label><input type="radio" name="q49" value="-3"> کاملاً مخالفم</label>
+            <label><input type="radio" name="q49" value="-2"> مخالفم</label>
+            <label><input type="radio" name="q49" value="-1"> نسبتاً مخالفم</label>
+            <label><input type="radio" name="q49" value="0"> خنثی</label>
+            <label><input type="radio" name="q49" value="1"> نسبتاً موافقم</label>
+            <label><input type="radio" name="q49" value="2"> موافقم</label>
+            <label><input type="radio" name="q49" value="3"> کاملاً موافقم</label>
         </div>
     </div>
     
-
     <div class="question">
-        <p><strong>سؤال 50:</strong> متن دقیق سؤال شماره 50 در اینجا قرار می‌گیرد.</p>
+        <strong>سؤال 50:</strong> سؤال شماره 50 (متن دقیق اینجا قرار می‌گیرد)<br>
         <div class="options">
-            <label><input type="radio" name="q50" value="0"> کاملاً مخالفم</label><label><input type="radio" name="q50" value="1"> مخالفم</label><label><input type="radio" name="q50" value="2"> نسبتاً مخالفم</label><label><input type="radio" name="q50" value="3"> خنثی</label><label><input type="radio" name="q50" value="4"> نسبتاً موافقم</label><label><input type="radio" name="q50" value="5"> موافقم</label><label><input type="radio" name="q50" value="6"> کاملاً موافقم</label>
+            <label><input type="radio" name="q50" value="-3"> کاملاً مخالفم</label>
+            <label><input type="radio" name="q50" value="-2"> مخالفم</label>
+            <label><input type="radio" name="q50" value="-1"> نسبتاً مخالفم</label>
+            <label><input type="radio" name="q50" value="0"> خنثی</label>
+            <label><input type="radio" name="q50" value="1"> نسبتاً موافقم</label>
+            <label><input type="radio" name="q50" value="2"> موافقم</label>
+            <label><input type="radio" name="q50" value="3"> کاملاً موافقم</label>
         </div>
     </div>
     
-
     <div class="question">
-        <p><strong>سؤال 51:</strong> متن دقیق سؤال شماره 51 در اینجا قرار می‌گیرد.</p>
+        <strong>سؤال 51:</strong> سؤال شماره 51 (متن دقیق اینجا قرار می‌گیرد)<br>
         <div class="options">
-            <label><input type="radio" name="q51" value="0"> کاملاً مخالفم</label><label><input type="radio" name="q51" value="1"> مخالفم</label><label><input type="radio" name="q51" value="2"> نسبتاً مخالفم</label><label><input type="radio" name="q51" value="3"> خنثی</label><label><input type="radio" name="q51" value="4"> نسبتاً موافقم</label><label><input type="radio" name="q51" value="5"> موافقم</label><label><input type="radio" name="q51" value="6"> کاملاً موافقم</label>
+            <label><input type="radio" name="q51" value="-3"> کاملاً مخالفم</label>
+            <label><input type="radio" name="q51" value="-2"> مخالفم</label>
+            <label><input type="radio" name="q51" value="-1"> نسبتاً مخالفم</label>
+            <label><input type="radio" name="q51" value="0"> خنثی</label>
+            <label><input type="radio" name="q51" value="1"> نسبتاً موافقم</label>
+            <label><input type="radio" name="q51" value="2"> موافقم</label>
+            <label><input type="radio" name="q51" value="3"> کاملاً موافقم</label>
         </div>
     </div>
     
-
     <div class="question">
-        <p><strong>سؤال 52:</strong> متن دقیق سؤال شماره 52 در اینجا قرار می‌گیرد.</p>
+        <strong>سؤال 52:</strong> سؤال شماره 52 (متن دقیق اینجا قرار می‌گیرد)<br>
         <div class="options">
-            <label><input type="radio" name="q52" value="0"> کاملاً مخالفم</label><label><input type="radio" name="q52" value="1"> مخالفم</label><label><input type="radio" name="q52" value="2"> نسبتاً مخالفم</label><label><input type="radio" name="q52" value="3"> خنثی</label><label><input type="radio" name="q52" value="4"> نسبتاً موافقم</label><label><input type="radio" name="q52" value="5"> موافقم</label><label><input type="radio" name="q52" value="6"> کاملاً موافقم</label>
+            <label><input type="radio" name="q52" value="-3"> کاملاً مخالفم</label>
+            <label><input type="radio" name="q52" value="-2"> مخالفم</label>
+            <label><input type="radio" name="q52" value="-1"> نسبتاً مخالفم</label>
+            <label><input type="radio" name="q52" value="0"> خنثی</label>
+            <label><input type="radio" name="q52" value="1"> نسبتاً موافقم</label>
+            <label><input type="radio" name="q52" value="2"> موافقم</label>
+            <label><input type="radio" name="q52" value="3"> کاملاً موافقم</label>
         </div>
     </div>
     
-
     <div class="question">
-        <p><strong>سؤال 53:</strong> متن دقیق سؤال شماره 53 در اینجا قرار می‌گیرد.</p>
+        <strong>سؤال 53:</strong> سؤال شماره 53 (متن دقیق اینجا قرار می‌گیرد)<br>
         <div class="options">
-            <label><input type="radio" name="q53" value="0"> کاملاً مخالفم</label><label><input type="radio" name="q53" value="1"> مخالفم</label><label><input type="radio" name="q53" value="2"> نسبتاً مخالفم</label><label><input type="radio" name="q53" value="3"> خنثی</label><label><input type="radio" name="q53" value="4"> نسبتاً موافقم</label><label><input type="radio" name="q53" value="5"> موافقم</label><label><input type="radio" name="q53" value="6"> کاملاً موافقم</label>
+            <label><input type="radio" name="q53" value="-3"> کاملاً مخالفم</label>
+            <label><input type="radio" name="q53" value="-2"> مخالفم</label>
+            <label><input type="radio" name="q53" value="-1"> نسبتاً مخالفم</label>
+            <label><input type="radio" name="q53" value="0"> خنثی</label>
+            <label><input type="radio" name="q53" value="1"> نسبتاً موافقم</label>
+            <label><input type="radio" name="q53" value="2"> موافقم</label>
+            <label><input type="radio" name="q53" value="3"> کاملاً موافقم</label>
         </div>
     </div>
     
-
     <div class="question">
-        <p><strong>سؤال 54:</strong> متن دقیق سؤال شماره 54 در اینجا قرار می‌گیرد.</p>
+        <strong>سؤال 54:</strong> سؤال شماره 54 (متن دقیق اینجا قرار می‌گیرد)<br>
         <div class="options">
-            <label><input type="radio" name="q54" value="0"> کاملاً مخالفم</label><label><input type="radio" name="q54" value="1"> مخالفم</label><label><input type="radio" name="q54" value="2"> نسبتاً مخالفم</label><label><input type="radio" name="q54" value="3"> خنثی</label><label><input type="radio" name="q54" value="4"> نسبتاً موافقم</label><label><input type="radio" name="q54" value="5"> موافقم</label><label><input type="radio" name="q54" value="6"> کاملاً موافقم</label>
+            <label><input type="radio" name="q54" value="-3"> کاملاً مخالفم</label>
+            <label><input type="radio" name="q54" value="-2"> مخالفم</label>
+            <label><input type="radio" name="q54" value="-1"> نسبتاً مخالفم</label>
+            <label><input type="radio" name="q54" value="0"> خنثی</label>
+            <label><input type="radio" name="q54" value="1"> نسبتاً موافقم</label>
+            <label><input type="radio" name="q54" value="2"> موافقم</label>
+            <label><input type="radio" name="q54" value="3"> کاملاً موافقم</label>
         </div>
     </div>
     
-
     <div class="question">
-        <p><strong>سؤال 55:</strong> متن دقیق سؤال شماره 55 در اینجا قرار می‌گیرد.</p>
+        <strong>سؤال 55:</strong> سؤال شماره 55 (متن دقیق اینجا قرار می‌گیرد)<br>
         <div class="options">
-            <label><input type="radio" name="q55" value="0"> کاملاً مخالفم</label><label><input type="radio" name="q55" value="1"> مخالفم</label><label><input type="radio" name="q55" value="2"> نسبتاً مخالفم</label><label><input type="radio" name="q55" value="3"> خنثی</label><label><input type="radio" name="q55" value="4"> نسبتاً موافقم</label><label><input type="radio" name="q55" value="5"> موافقم</label><label><input type="radio" name="q55" value="6"> کاملاً موافقم</label>
+            <label><input type="radio" name="q55" value="-3"> کاملاً مخالفم</label>
+            <label><input type="radio" name="q55" value="-2"> مخالفم</label>
+            <label><input type="radio" name="q55" value="-1"> نسبتاً مخالفم</label>
+            <label><input type="radio" name="q55" value="0"> خنثی</label>
+            <label><input type="radio" name="q55" value="1"> نسبتاً موافقم</label>
+            <label><input type="radio" name="q55" value="2"> موافقم</label>
+            <label><input type="radio" name="q55" value="3"> کاملاً موافقم</label>
         </div>
     </div>
     
-
     <div class="question">
-        <p><strong>سؤال 56:</strong> متن دقیق سؤال شماره 56 در اینجا قرار می‌گیرد.</p>
+        <strong>سؤال 56:</strong> سؤال شماره 56 (متن دقیق اینجا قرار می‌گیرد)<br>
         <div class="options">
-            <label><input type="radio" name="q56" value="0"> کاملاً مخالفم</label><label><input type="radio" name="q56" value="1"> مخالفم</label><label><input type="radio" name="q56" value="2"> نسبتاً مخالفم</label><label><input type="radio" name="q56" value="3"> خنثی</label><label><input type="radio" name="q56" value="4"> نسبتاً موافقم</label><label><input type="radio" name="q56" value="5"> موافقم</label><label><input type="radio" name="q56" value="6"> کاملاً موافقم</label>
+            <label><input type="radio" name="q56" value="-3"> کاملاً مخالفم</label>
+            <label><input type="radio" name="q56" value="-2"> مخالفم</label>
+            <label><input type="radio" name="q56" value="-1"> نسبتاً مخالفم</label>
+            <label><input type="radio" name="q56" value="0"> خنثی</label>
+            <label><input type="radio" name="q56" value="1"> نسبتاً موافقم</label>
+            <label><input type="radio" name="q56" value="2"> موافقم</label>
+            <label><input type="radio" name="q56" value="3"> کاملاً موافقم</label>
         </div>
     </div>
     
-
     <div class="question">
-        <p><strong>سؤال 57:</strong> متن دقیق سؤال شماره 57 در اینجا قرار می‌گیرد.</p>
+        <strong>سؤال 57:</strong> سؤال شماره 57 (متن دقیق اینجا قرار می‌گیرد)<br>
         <div class="options">
-            <label><input type="radio" name="q57" value="0"> کاملاً مخالفم</label><label><input type="radio" name="q57" value="1"> مخالفم</label><label><input type="radio" name="q57" value="2"> نسبتاً مخالفم</label><label><input type="radio" name="q57" value="3"> خنثی</label><label><input type="radio" name="q57" value="4"> نسبتاً موافقم</label><label><input type="radio" name="q57" value="5"> موافقم</label><label><input type="radio" name="q57" value="6"> کاملاً موافقم</label>
+            <label><input type="radio" name="q57" value="-3"> کاملاً مخالفم</label>
+            <label><input type="radio" name="q57" value="-2"> مخالفم</label>
+            <label><input type="radio" name="q57" value="-1"> نسبتاً مخالفم</label>
+            <label><input type="radio" name="q57" value="0"> خنثی</label>
+            <label><input type="radio" name="q57" value="1"> نسبتاً موافقم</label>
+            <label><input type="radio" name="q57" value="2"> موافقم</label>
+            <label><input type="radio" name="q57" value="3"> کاملاً موافقم</label>
         </div>
     </div>
     
-
     <div class="question">
-        <p><strong>سؤال 58:</strong> متن دقیق سؤال شماره 58 در اینجا قرار می‌گیرد.</p>
+        <strong>سؤال 58:</strong> سؤال شماره 58 (متن دقیق اینجا قرار می‌گیرد)<br>
         <div class="options">
-            <label><input type="radio" name="q58" value="0"> کاملاً مخالفم</label><label><input type="radio" name="q58" value="1"> مخالفم</label><label><input type="radio" name="q58" value="2"> نسبتاً مخالفم</label><label><input type="radio" name="q58" value="3"> خنثی</label><label><input type="radio" name="q58" value="4"> نسبتاً موافقم</label><label><input type="radio" name="q58" value="5"> موافقم</label><label><input type="radio" name="q58" value="6"> کاملاً موافقم</label>
+            <label><input type="radio" name="q58" value="-3"> کاملاً مخالفم</label>
+            <label><input type="radio" name="q58" value="-2"> مخالفم</label>
+            <label><input type="radio" name="q58" value="-1"> نسبتاً مخالفم</label>
+            <label><input type="radio" name="q58" value="0"> خنثی</label>
+            <label><input type="radio" name="q58" value="1"> نسبتاً موافقم</label>
+            <label><input type="radio" name="q58" value="2"> موافقم</label>
+            <label><input type="radio" name="q58" value="3"> کاملاً موافقم</label>
         </div>
     </div>
     
-
     <div class="question">
-        <p><strong>سؤال 59:</strong> متن دقیق سؤال شماره 59 در اینجا قرار می‌گیرد.</p>
+        <strong>سؤال 59:</strong> سؤال شماره 59 (متن دقیق اینجا قرار می‌گیرد)<br>
         <div class="options">
-            <label><input type="radio" name="q59" value="0"> کاملاً مخالفم</label><label><input type="radio" name="q59" value="1"> مخالفم</label><label><input type="radio" name="q59" value="2"> نسبتاً مخالفم</label><label><input type="radio" name="q59" value="3"> خنثی</label><label><input type="radio" name="q59" value="4"> نسبتاً موافقم</label><label><input type="radio" name="q59" value="5"> موافقم</label><label><input type="radio" name="q59" value="6"> کاملاً موافقم</label>
+            <label><input type="radio" name="q59" value="-3"> کاملاً مخالفم</label>
+            <label><input type="radio" name="q59" value="-2"> مخالفم</label>
+            <label><input type="radio" name="q59" value="-1"> نسبتاً مخالفم</label>
+            <label><input type="radio" name="q59" value="0"> خنثی</label>
+            <label><input type="radio" name="q59" value="1"> نسبتاً موافقم</label>
+            <label><input type="radio" name="q59" value="2"> موافقم</label>
+            <label><input type="radio" name="q59" value="3"> کاملاً موافقم</label>
         </div>
     </div>
     
-
     <div class="question">
-        <p><strong>سؤال 60:</strong> متن دقیق سؤال شماره 60 در اینجا قرار می‌گیرد.</p>
+        <strong>سؤال 60:</strong> سؤال شماره 60 (متن دقیق اینجا قرار می‌گیرد)<br>
         <div class="options">
-            <label><input type="radio" name="q60" value="0"> کاملاً مخالفم</label><label><input type="radio" name="q60" value="1"> مخالفم</label><label><input type="radio" name="q60" value="2"> نسبتاً مخالفم</label><label><input type="radio" name="q60" value="3"> خنثی</label><label><input type="radio" name="q60" value="4"> نسبتاً موافقم</label><label><input type="radio" name="q60" value="5"> موافقم</label><label><input type="radio" name="q60" value="6"> کاملاً موافقم</label>
+            <label><input type="radio" name="q60" value="-3"> کاملاً مخالفم</label>
+            <label><input type="radio" name="q60" value="-2"> مخالفم</label>
+            <label><input type="radio" name="q60" value="-1"> نسبتاً مخالفم</label>
+            <label><input type="radio" name="q60" value="0"> خنثی</label>
+            <label><input type="radio" name="q60" value="1"> نسبتاً موافقم</label>
+            <label><input type="radio" name="q60" value="2"> موافقم</label>
+            <label><input type="radio" name="q60" value="3"> کاملاً موافقم</label>
         </div>
     </div>
     
-        <button type="button" onclick="submitForm()">مشاهده نتیجه</button>
+    <div class="center">
+        <button type="submit">مشاهده نتیجه</button>
+    </div>
     </form>
-
-    <div id="result"></div>
-
     <script>
-        function submitForm() {
-            const form = document.getElementById('mbti-form');
-            const formData = new FormData(form);
-            let unanswered = false;
+        document.getElementById("mbtiForm").addEventListener("submit", function(event) {
+            event.preventDefault();
+            const form = event.target;
+            let unanswered = 0;
             for (let i = 1; i <= 60; i++) {
-                if (!formData.get("q" + i)) {
-                    unanswered = true;
-                    break;
-                }
+                if (!form["q" + i].value) unanswered++;
             }
-            if (unanswered) {
-                alert("لطفاً به تمام سوالات پاسخ دهید.");
+            if (unanswered > 0) {
+                alert("لطفاً به تمام ۶۰ سوال پاسخ دهید.");
                 return;
             }
-
-            // الگوریتم فرضی محاسبه تیپ (در واقع باید دقیق پیاده‌سازی شود)
-            let type = "INTJ";
-            let title = "معمار";
-            let bookLink = "https://designer-sho.com/shop/types/P45616-INTJ.html";
-
-            const resultDiv = document.getElementById("result");
-            resultDiv.style.display = "block";
-            resultDiv.innerHTML = `
-                <p>تیپ شخصیتی شما: <strong>${type}</strong> – ${title}</p>
-                <p><a href="${bookLink}" target="_blank" style="color:#b30059;">مشاهده کتابک مخصوص این تیپ</a></p>
-            `;
-            window.scrollTo(0, document.body.scrollHeight);
-        }
+            // محاسبه فرضی: نمایش نتیجه ثابت
+            const result = "INFJ";
+            const title = "مشاور";
+            const link = "https://designer-sho.com/shop/types/P45612-INFJ.html";
+            form.innerHTML = `<h2>تیپ شخصیتی شما: ${result} – ${title}</h2>
+                <p><a href="${link}" target="_blank">مشاهده کتابک مخصوص این تیپ</a></p>`;
+        });
     </script>
 </body>
 </html>
