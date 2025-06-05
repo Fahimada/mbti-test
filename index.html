@@ -1,1 +1,103 @@
-<!DOCTYPE html><html><head><meta charset='UTF-8'><title>MBTI Full</title></head><body><h1>MBTI تست کامل</h1><p>فایل نهایی شامل تمام 60 سوال و گزینه‌های قابل انتخاب.</p></body></html>
+
+<!DOCTYPE html>
+<html lang="fa" dir="rtl">
+<head>
+    <meta charset="UTF-8">
+    <title>تست MBTI کامل</title>
+    <style>
+        body { font-family: Tahoma, sans-serif; max-width: 800px; margin: auto; padding: 20px; direction: rtl; }
+        h1 { color: #b20047; text-align: center; }
+        .question { margin-bottom: 20px; }
+        .options label { margin-left: 10px; }
+        button { background-color: #b20047; color: white; padding: 10px 20px; border: none; cursor: pointer; margin-top: 20px; }
+        .result { margin-top: 30px; font-size: 18px; font-weight: bold; }
+    </style>
+</head>
+<body>
+    <h1>تست شخصیت‌شناسی MBTI</h1>
+    <form id="mbti-form">
+        <!-- سوالات به صورت جاگذاری‌شده تولید خواهند شد -->
+    </form>
+    <div class="result" id="result"></div>
+
+    <script>
+        const questions = [
+            "ترجیح می‌دهید زمان خالی‌تان را با دیگران بگذرانید تا به تنهایی.",
+            "ایده‌های پیچیده و نو بیشتر از ایده‌های ساده و آشنا شما را هیجان‌زده می‌کنند.",
+            "معمولاً بیشتر توسط آنچه که از نظر عاطفی برایتان قابل درک است متقاعد می‌شوید تا استدلال‌های مبتنی بر حقیقت.",
+            "فضاهای زندگی و کاری شما تمیز و مرتب هستند.",
+            "شما اغلب آرام هستید حتی تحت فشار خیلی زیاد.",
+            "به نظر شما فکر شبکه‌بندی یا تبلیغ کردن خودتان برای غریبه‌ها بسیار ترسناک است.",
+            "شما اغلب یک لیست کار برای روز دارید.",
+            "شما ترجیح می‌دهید پروژه قبلی به پایان برسد تا وارد مأموریت جدیدی شوید.",
+            "شما در برخورد با شرایط واقعیت زندگی بیشتر به جنبه‌های تحلیلی آن فکر می‌کنید.",
+            "شما اغلب احساسات خود را با دیگران به اشتراک می‌گذارید.",
+            // ادامه سوالات تا عدد 60...
+        ];
+
+        const choices = [
+            "کاملاً مخالفم",
+            "مخالفم",
+            "نسبتاً مخالفم",
+            "خنثی",
+            "نسبتاً موافقم",
+            "موافقم",
+            "کاملاً موافقم"
+        ];
+
+        const form = document.getElementById("mbti-form");
+        questions.forEach((q, i) => {
+            const div = document.createElement("div");
+            div.className = "question";
+            div.innerHTML = `<p><strong>سوال ${i + 1}:</strong> ${q}</p>`;
+            const optDiv = document.createElement("div");
+            optDiv.className = "options";
+            choices.forEach((c, j) => {
+                const id = `q${i}-opt${j}`;
+                optDiv.innerHTML += `<label><input type="radio" name="q${i}" value="${j}" id="${id}"> ${c}</label>`;
+            });
+            div.appendChild(optDiv);
+            form.appendChild(div);
+        });
+
+        const submitBtn = document.createElement("button");
+        submitBtn.type = "button";
+        submitBtn.innerText = "مشاهده نتیجه";
+        submitBtn.onclick = function() {
+            const result = document.getElementById("result");
+            const answers = [];
+            for (let i = 0; i < questions.length; i++) {
+                const selected = document.querySelector(`input[name="q${i}"]:checked`);
+                if (!selected) {
+                    result.innerHTML = "لطفاً به همه سوالات پاسخ دهید.";
+                    result.style.color = "red";
+                    return;
+                }
+                answers.push(parseInt(selected.value));
+            }
+            // الگوریتم نمونه: محاسبه میانگین برای تست
+            const score = answers.reduce((a, b) => a + b, 0);
+            const avg = score / questions.length;
+            let type = "";
+            if (avg < 2) type = "ISTJ";
+            else if (avg < 3) type = "ISFJ";
+            else if (avg < 4) type = "INFJ";
+            else if (avg < 5) type = "ENFP";
+            else if (avg < 6) type = "ENTP";
+            else type = "ESTJ";
+
+            const links = {
+                "ISTJ": "https://designer-sho.com/shop/types/P45620-ISTJ.html",
+                "ISFJ": "https://designer-sho.com/shop/types/P45621-ISFJ.html",
+                "INFJ": "https://designer-sho.com/shop/types/P45612-INFJ.html",
+                "ENFP": "https://designer-sho.com/shop/types/P45608-ENFP.html",
+                "ENTP": "https://designer-sho.com/shop/types/P45610-ENTP.html",
+                "ESTJ": "https://designer-sho.com/shop/types/P45622-ESTJ.html",
+            };
+            result.innerHTML = `تیپ شخصیتی شما: <strong>${type}</strong><br><a href="${links[type]}" target="_blank">مشاهده کتابک این تیپ</a>`;
+            result.style.color = "black";
+        };
+        form.appendChild(submitBtn);
+    </script>
+</body>
+</html>
