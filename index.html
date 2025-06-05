@@ -3,24 +3,25 @@
 <html lang="fa" dir="rtl">
 <head>
     <meta charset="UTF-8">
-    <title>تست شخصیت‌شناسی MBTI</title>
+    <title>تست کامل MBTI</title>
     <style>
-        body { font-family: sans-serif; background: #fafafa; padding: 20px; color: #222; }
+        body { font-family: sans-serif; line-height: 1.8; direction: rtl; padding: 30px; max-width: 800px; margin: auto; }
         h1 { color: #b30059; }
-        .question { margin-bottom: 30px; padding: 10px; background: #fff; border-radius: 6px; box-shadow: 0 0 5px rgba(0,0,0,0.05); }
-        .options label { margin: 0 10px; }
-        .center { text-align: center; margin-top: 40px; }
-        button { background: #b30059; color: white; padding: 10px 20px; border: none; border-radius: 5px; cursor: pointer; }
-        button:hover { background: #99004d; }
+        .question { margin-bottom: 20px; }
+        .options { margin-top: 5px; }
+        .options label { margin-left: 10px; }
+        .result { margin-top: 30px; font-weight: bold; color: green; }
+        button { padding: 10px 20px; background-color: #b30059; color: white; border: none; cursor: pointer; margin-top: 20px; }
+        button:disabled { background-color: grey; }
     </style>
 </head>
 <body>
     <h1>تست شخصیت‌شناسی MBTI</h1>
-    <p>به همهٔ ۶۰ سؤال زیر با دقت پاسخ دهید. در پایان، تیپ شخصیتی شما همراه با لینک کتابک نمایش داده خواهد شد.</p>
-    <form id="mbtiForm">
+    <p>به همه ۶۰ سؤال زیر با دقت پاسخ دهید. در پایان، تیپ شخصیتی شما همراه با لینک کتابک نمایش داده خواهد شد.</p>
+    <form id="mbti-form">
 
     <div class="question">
-        <strong>سؤال 1:</strong> شما مرتب دوستان جدیدی پیدا می‌کنید.<br>
+        <strong>سؤال 1:</strong> شما مرتب دوستان جدیدی پیدا می‌کنید.
         <div class="options">
             <label><input type="radio" name="q1" value="-3"> کاملاً مخالفم</label>
             <label><input type="radio" name="q1" value="-2"> مخالفم</label>
@@ -33,7 +34,7 @@
     </div>
     
     <div class="question">
-        <strong>سؤال 2:</strong> ایده‌های پیچیده و نو بیشتر از ایده‌های ساده و آشنا شما را هیجان‌زده می‌کنند.<br>
+        <strong>سؤال 2:</strong> ایده‌های پیچیده و نو بیشتر از ایده‌های ساده و آشنا شما را هیجان‌زده می‌کنند.
         <div class="options">
             <label><input type="radio" name="q2" value="-3"> کاملاً مخالفم</label>
             <label><input type="radio" name="q2" value="-2"> مخالفم</label>
@@ -46,7 +47,7 @@
     </div>
     
     <div class="question">
-        <strong>سؤال 3:</strong> معمولاً بیشتر توسط آنچه که از نظر عاطفی قابل درک است متقاعد می‌شوید تا استدلال‌های مبتنی بر حقیقت.<br>
+        <strong>سؤال 3:</strong> معمولاً بیشتر توسط آنچه که از نظر عاطفی قابل درک است متقاعد می‌شوید تا استدلال‌های مبتنی بر حقیقت.
         <div class="options">
             <label><input type="radio" name="q3" value="-3"> کاملاً مخالفم</label>
             <label><input type="radio" name="q3" value="-2"> مخالفم</label>
@@ -59,7 +60,7 @@
     </div>
     
     <div class="question">
-        <strong>سؤال 4:</strong> فضاهای زندگی و کاری شما تمیز و مرتب هستند.<br>
+        <strong>سؤال 4:</strong> فضاهای زندگی و کاری شما تمیز و مرتب هستند.
         <div class="options">
             <label><input type="radio" name="q4" value="-3"> کاملاً مخالفم</label>
             <label><input type="radio" name="q4" value="-2"> مخالفم</label>
@@ -72,7 +73,7 @@
     </div>
     
     <div class="question">
-        <strong>سؤال 5:</strong> شما اغلب آرام هستید حتی تحت فشار خیلی زیاد.<br>
+        <strong>سؤال 5:</strong> شما اغلب آرام هستید حتی تحت فشار خیلی زیاد.
         <div class="options">
             <label><input type="radio" name="q5" value="-3"> کاملاً مخالفم</label>
             <label><input type="radio" name="q5" value="-2"> مخالفم</label>
@@ -85,7 +86,7 @@
     </div>
     
     <div class="question">
-        <strong>سؤال 6:</strong> سؤال شماره 6 (متن دقیق اینجا قرار می‌گیرد)<br>
+        <strong>سؤال 6:</strong> به نظر شما فکر شبکه‌بندی یا تبلیغ کردن خودتان برای غریبه‌ها بسیار ترسناک است.
         <div class="options">
             <label><input type="radio" name="q6" value="-3"> کاملاً مخالفم</label>
             <label><input type="radio" name="q6" value="-2"> مخالفم</label>
@@ -98,7 +99,7 @@
     </div>
     
     <div class="question">
-        <strong>سؤال 7:</strong> سؤال شماره 7 (متن دقیق اینجا قرار می‌گیرد)<br>
+        <strong>سؤال 7:</strong> شما اغلب یک لیست کار برای هر روز دارید.
         <div class="options">
             <label><input type="radio" name="q7" value="-3"> کاملاً مخالفم</label>
             <label><input type="radio" name="q7" value="-2"> مخالفم</label>
@@ -111,7 +112,7 @@
     </div>
     
     <div class="question">
-        <strong>سؤال 8:</strong> سؤال شماره 8 (متن دقیق اینجا قرار می‌گیرد)<br>
+        <strong>سؤال 8:</strong> در زمان ترجیح می‌دهید پروژه نیمه‌کاره را به پایان برسانید تا وارد مأموریت جدیدی شوید.
         <div class="options">
             <label><input type="radio" name="q8" value="-3"> کاملاً مخالفم</label>
             <label><input type="radio" name="q8" value="-2"> مخالفم</label>
@@ -124,7 +125,7 @@
     </div>
     
     <div class="question">
-        <strong>سؤال 9:</strong> سؤال شماره 9 (متن دقیق اینجا قرار می‌گیرد)<br>
+        <strong>سؤال 9:</strong> در برخورد با شرایط زندگی بیشتر به جنبه‌های تحلیلی آن فکر می‌کنید.
         <div class="options">
             <label><input type="radio" name="q9" value="-3"> کاملاً مخالفم</label>
             <label><input type="radio" name="q9" value="-2"> مخالفم</label>
@@ -137,7 +138,7 @@
     </div>
     
     <div class="question">
-        <strong>سؤال 10:</strong> سؤال شماره 10 (متن دقیق اینجا قرار می‌گیرد)<br>
+        <strong>سؤال 10:</strong> شما اغلب احساسات خود را با دیگران به اشتراک می‌گذارید.
         <div class="options">
             <label><input type="radio" name="q10" value="-3"> کاملاً مخالفم</label>
             <label><input type="radio" name="q10" value="-2"> مخالفم</label>
@@ -150,7 +151,7 @@
     </div>
     
     <div class="question">
-        <strong>سؤال 11:</strong> سؤال شماره 11 (متن دقیق اینجا قرار می‌گیرد)<br>
+        <strong>سؤال 11:</strong> شما مرتب دوستان جدیدی پیدا می‌کنید.
         <div class="options">
             <label><input type="radio" name="q11" value="-3"> کاملاً مخالفم</label>
             <label><input type="radio" name="q11" value="-2"> مخالفم</label>
@@ -163,7 +164,7 @@
     </div>
     
     <div class="question">
-        <strong>سؤال 12:</strong> سؤال شماره 12 (متن دقیق اینجا قرار می‌گیرد)<br>
+        <strong>سؤال 12:</strong> ایده‌های پیچیده و نو بیشتر از ایده‌های ساده و آشنا شما را هیجان‌زده می‌کنند.
         <div class="options">
             <label><input type="radio" name="q12" value="-3"> کاملاً مخالفم</label>
             <label><input type="radio" name="q12" value="-2"> مخالفم</label>
@@ -176,7 +177,7 @@
     </div>
     
     <div class="question">
-        <strong>سؤال 13:</strong> سؤال شماره 13 (متن دقیق اینجا قرار می‌گیرد)<br>
+        <strong>سؤال 13:</strong> معمولاً بیشتر توسط آنچه که از نظر عاطفی قابل درک است متقاعد می‌شوید تا استدلال‌های مبتنی بر حقیقت.
         <div class="options">
             <label><input type="radio" name="q13" value="-3"> کاملاً مخالفم</label>
             <label><input type="radio" name="q13" value="-2"> مخالفم</label>
@@ -189,7 +190,7 @@
     </div>
     
     <div class="question">
-        <strong>سؤال 14:</strong> سؤال شماره 14 (متن دقیق اینجا قرار می‌گیرد)<br>
+        <strong>سؤال 14:</strong> فضاهای زندگی و کاری شما تمیز و مرتب هستند.
         <div class="options">
             <label><input type="radio" name="q14" value="-3"> کاملاً مخالفم</label>
             <label><input type="radio" name="q14" value="-2"> مخالفم</label>
@@ -202,7 +203,7 @@
     </div>
     
     <div class="question">
-        <strong>سؤال 15:</strong> سؤال شماره 15 (متن دقیق اینجا قرار می‌گیرد)<br>
+        <strong>سؤال 15:</strong> شما اغلب آرام هستید حتی تحت فشار خیلی زیاد.
         <div class="options">
             <label><input type="radio" name="q15" value="-3"> کاملاً مخالفم</label>
             <label><input type="radio" name="q15" value="-2"> مخالفم</label>
@@ -215,7 +216,7 @@
     </div>
     
     <div class="question">
-        <strong>سؤال 16:</strong> سؤال شماره 16 (متن دقیق اینجا قرار می‌گیرد)<br>
+        <strong>سؤال 16:</strong> به نظر شما فکر شبکه‌بندی یا تبلیغ کردن خودتان برای غریبه‌ها بسیار ترسناک است.
         <div class="options">
             <label><input type="radio" name="q16" value="-3"> کاملاً مخالفم</label>
             <label><input type="radio" name="q16" value="-2"> مخالفم</label>
@@ -228,7 +229,7 @@
     </div>
     
     <div class="question">
-        <strong>سؤال 17:</strong> سؤال شماره 17 (متن دقیق اینجا قرار می‌گیرد)<br>
+        <strong>سؤال 17:</strong> شما اغلب یک لیست کار برای هر روز دارید.
         <div class="options">
             <label><input type="radio" name="q17" value="-3"> کاملاً مخالفم</label>
             <label><input type="radio" name="q17" value="-2"> مخالفم</label>
@@ -241,7 +242,7 @@
     </div>
     
     <div class="question">
-        <strong>سؤال 18:</strong> سؤال شماره 18 (متن دقیق اینجا قرار می‌گیرد)<br>
+        <strong>سؤال 18:</strong> در زمان ترجیح می‌دهید پروژه نیمه‌کاره را به پایان برسانید تا وارد مأموریت جدیدی شوید.
         <div class="options">
             <label><input type="radio" name="q18" value="-3"> کاملاً مخالفم</label>
             <label><input type="radio" name="q18" value="-2"> مخالفم</label>
@@ -254,7 +255,7 @@
     </div>
     
     <div class="question">
-        <strong>سؤال 19:</strong> سؤال شماره 19 (متن دقیق اینجا قرار می‌گیرد)<br>
+        <strong>سؤال 19:</strong> در برخورد با شرایط زندگی بیشتر به جنبه‌های تحلیلی آن فکر می‌کنید.
         <div class="options">
             <label><input type="radio" name="q19" value="-3"> کاملاً مخالفم</label>
             <label><input type="radio" name="q19" value="-2"> مخالفم</label>
@@ -267,7 +268,7 @@
     </div>
     
     <div class="question">
-        <strong>سؤال 20:</strong> سؤال شماره 20 (متن دقیق اینجا قرار می‌گیرد)<br>
+        <strong>سؤال 20:</strong> شما اغلب احساسات خود را با دیگران به اشتراک می‌گذارید.
         <div class="options">
             <label><input type="radio" name="q20" value="-3"> کاملاً مخالفم</label>
             <label><input type="radio" name="q20" value="-2"> مخالفم</label>
@@ -280,7 +281,7 @@
     </div>
     
     <div class="question">
-        <strong>سؤال 21:</strong> سؤال شماره 21 (متن دقیق اینجا قرار می‌گیرد)<br>
+        <strong>سؤال 21:</strong> شما مرتب دوستان جدیدی پیدا می‌کنید.
         <div class="options">
             <label><input type="radio" name="q21" value="-3"> کاملاً مخالفم</label>
             <label><input type="radio" name="q21" value="-2"> مخالفم</label>
@@ -293,7 +294,7 @@
     </div>
     
     <div class="question">
-        <strong>سؤال 22:</strong> سؤال شماره 22 (متن دقیق اینجا قرار می‌گیرد)<br>
+        <strong>سؤال 22:</strong> ایده‌های پیچیده و نو بیشتر از ایده‌های ساده و آشنا شما را هیجان‌زده می‌کنند.
         <div class="options">
             <label><input type="radio" name="q22" value="-3"> کاملاً مخالفم</label>
             <label><input type="radio" name="q22" value="-2"> مخالفم</label>
@@ -306,7 +307,7 @@
     </div>
     
     <div class="question">
-        <strong>سؤال 23:</strong> سؤال شماره 23 (متن دقیق اینجا قرار می‌گیرد)<br>
+        <strong>سؤال 23:</strong> معمولاً بیشتر توسط آنچه که از نظر عاطفی قابل درک است متقاعد می‌شوید تا استدلال‌های مبتنی بر حقیقت.
         <div class="options">
             <label><input type="radio" name="q23" value="-3"> کاملاً مخالفم</label>
             <label><input type="radio" name="q23" value="-2"> مخالفم</label>
@@ -319,7 +320,7 @@
     </div>
     
     <div class="question">
-        <strong>سؤال 24:</strong> سؤال شماره 24 (متن دقیق اینجا قرار می‌گیرد)<br>
+        <strong>سؤال 24:</strong> فضاهای زندگی و کاری شما تمیز و مرتب هستند.
         <div class="options">
             <label><input type="radio" name="q24" value="-3"> کاملاً مخالفم</label>
             <label><input type="radio" name="q24" value="-2"> مخالفم</label>
@@ -332,7 +333,7 @@
     </div>
     
     <div class="question">
-        <strong>سؤال 25:</strong> سؤال شماره 25 (متن دقیق اینجا قرار می‌گیرد)<br>
+        <strong>سؤال 25:</strong> شما اغلب آرام هستید حتی تحت فشار خیلی زیاد.
         <div class="options">
             <label><input type="radio" name="q25" value="-3"> کاملاً مخالفم</label>
             <label><input type="radio" name="q25" value="-2"> مخالفم</label>
@@ -345,7 +346,7 @@
     </div>
     
     <div class="question">
-        <strong>سؤال 26:</strong> سؤال شماره 26 (متن دقیق اینجا قرار می‌گیرد)<br>
+        <strong>سؤال 26:</strong> به نظر شما فکر شبکه‌بندی یا تبلیغ کردن خودتان برای غریبه‌ها بسیار ترسناک است.
         <div class="options">
             <label><input type="radio" name="q26" value="-3"> کاملاً مخالفم</label>
             <label><input type="radio" name="q26" value="-2"> مخالفم</label>
@@ -358,7 +359,7 @@
     </div>
     
     <div class="question">
-        <strong>سؤال 27:</strong> سؤال شماره 27 (متن دقیق اینجا قرار می‌گیرد)<br>
+        <strong>سؤال 27:</strong> شما اغلب یک لیست کار برای هر روز دارید.
         <div class="options">
             <label><input type="radio" name="q27" value="-3"> کاملاً مخالفم</label>
             <label><input type="radio" name="q27" value="-2"> مخالفم</label>
@@ -371,7 +372,7 @@
     </div>
     
     <div class="question">
-        <strong>سؤال 28:</strong> سؤال شماره 28 (متن دقیق اینجا قرار می‌گیرد)<br>
+        <strong>سؤال 28:</strong> در زمان ترجیح می‌دهید پروژه نیمه‌کاره را به پایان برسانید تا وارد مأموریت جدیدی شوید.
         <div class="options">
             <label><input type="radio" name="q28" value="-3"> کاملاً مخالفم</label>
             <label><input type="radio" name="q28" value="-2"> مخالفم</label>
@@ -384,7 +385,7 @@
     </div>
     
     <div class="question">
-        <strong>سؤال 29:</strong> سؤال شماره 29 (متن دقیق اینجا قرار می‌گیرد)<br>
+        <strong>سؤال 29:</strong> در برخورد با شرایط زندگی بیشتر به جنبه‌های تحلیلی آن فکر می‌کنید.
         <div class="options">
             <label><input type="radio" name="q29" value="-3"> کاملاً مخالفم</label>
             <label><input type="radio" name="q29" value="-2"> مخالفم</label>
@@ -397,7 +398,7 @@
     </div>
     
     <div class="question">
-        <strong>سؤال 30:</strong> سؤال شماره 30 (متن دقیق اینجا قرار می‌گیرد)<br>
+        <strong>سؤال 30:</strong> شما اغلب احساسات خود را با دیگران به اشتراک می‌گذارید.
         <div class="options">
             <label><input type="radio" name="q30" value="-3"> کاملاً مخالفم</label>
             <label><input type="radio" name="q30" value="-2"> مخالفم</label>
@@ -410,7 +411,7 @@
     </div>
     
     <div class="question">
-        <strong>سؤال 31:</strong> سؤال شماره 31 (متن دقیق اینجا قرار می‌گیرد)<br>
+        <strong>سؤال 31:</strong> شما مرتب دوستان جدیدی پیدا می‌کنید.
         <div class="options">
             <label><input type="radio" name="q31" value="-3"> کاملاً مخالفم</label>
             <label><input type="radio" name="q31" value="-2"> مخالفم</label>
@@ -423,7 +424,7 @@
     </div>
     
     <div class="question">
-        <strong>سؤال 32:</strong> سؤال شماره 32 (متن دقیق اینجا قرار می‌گیرد)<br>
+        <strong>سؤال 32:</strong> ایده‌های پیچیده و نو بیشتر از ایده‌های ساده و آشنا شما را هیجان‌زده می‌کنند.
         <div class="options">
             <label><input type="radio" name="q32" value="-3"> کاملاً مخالفم</label>
             <label><input type="radio" name="q32" value="-2"> مخالفم</label>
@@ -436,7 +437,7 @@
     </div>
     
     <div class="question">
-        <strong>سؤال 33:</strong> سؤال شماره 33 (متن دقیق اینجا قرار می‌گیرد)<br>
+        <strong>سؤال 33:</strong> معمولاً بیشتر توسط آنچه که از نظر عاطفی قابل درک است متقاعد می‌شوید تا استدلال‌های مبتنی بر حقیقت.
         <div class="options">
             <label><input type="radio" name="q33" value="-3"> کاملاً مخالفم</label>
             <label><input type="radio" name="q33" value="-2"> مخالفم</label>
@@ -449,7 +450,7 @@
     </div>
     
     <div class="question">
-        <strong>سؤال 34:</strong> سؤال شماره 34 (متن دقیق اینجا قرار می‌گیرد)<br>
+        <strong>سؤال 34:</strong> فضاهای زندگی و کاری شما تمیز و مرتب هستند.
         <div class="options">
             <label><input type="radio" name="q34" value="-3"> کاملاً مخالفم</label>
             <label><input type="radio" name="q34" value="-2"> مخالفم</label>
@@ -462,7 +463,7 @@
     </div>
     
     <div class="question">
-        <strong>سؤال 35:</strong> سؤال شماره 35 (متن دقیق اینجا قرار می‌گیرد)<br>
+        <strong>سؤال 35:</strong> شما اغلب آرام هستید حتی تحت فشار خیلی زیاد.
         <div class="options">
             <label><input type="radio" name="q35" value="-3"> کاملاً مخالفم</label>
             <label><input type="radio" name="q35" value="-2"> مخالفم</label>
@@ -475,7 +476,7 @@
     </div>
     
     <div class="question">
-        <strong>سؤال 36:</strong> سؤال شماره 36 (متن دقیق اینجا قرار می‌گیرد)<br>
+        <strong>سؤال 36:</strong> به نظر شما فکر شبکه‌بندی یا تبلیغ کردن خودتان برای غریبه‌ها بسیار ترسناک است.
         <div class="options">
             <label><input type="radio" name="q36" value="-3"> کاملاً مخالفم</label>
             <label><input type="radio" name="q36" value="-2"> مخالفم</label>
@@ -488,7 +489,7 @@
     </div>
     
     <div class="question">
-        <strong>سؤال 37:</strong> سؤال شماره 37 (متن دقیق اینجا قرار می‌گیرد)<br>
+        <strong>سؤال 37:</strong> شما اغلب یک لیست کار برای هر روز دارید.
         <div class="options">
             <label><input type="radio" name="q37" value="-3"> کاملاً مخالفم</label>
             <label><input type="radio" name="q37" value="-2"> مخالفم</label>
@@ -501,7 +502,7 @@
     </div>
     
     <div class="question">
-        <strong>سؤال 38:</strong> سؤال شماره 38 (متن دقیق اینجا قرار می‌گیرد)<br>
+        <strong>سؤال 38:</strong> در زمان ترجیح می‌دهید پروژه نیمه‌کاره را به پایان برسانید تا وارد مأموریت جدیدی شوید.
         <div class="options">
             <label><input type="radio" name="q38" value="-3"> کاملاً مخالفم</label>
             <label><input type="radio" name="q38" value="-2"> مخالفم</label>
@@ -514,7 +515,7 @@
     </div>
     
     <div class="question">
-        <strong>سؤال 39:</strong> سؤال شماره 39 (متن دقیق اینجا قرار می‌گیرد)<br>
+        <strong>سؤال 39:</strong> در برخورد با شرایط زندگی بیشتر به جنبه‌های تحلیلی آن فکر می‌کنید.
         <div class="options">
             <label><input type="radio" name="q39" value="-3"> کاملاً مخالفم</label>
             <label><input type="radio" name="q39" value="-2"> مخالفم</label>
@@ -527,7 +528,7 @@
     </div>
     
     <div class="question">
-        <strong>سؤال 40:</strong> سؤال شماره 40 (متن دقیق اینجا قرار می‌گیرد)<br>
+        <strong>سؤال 40:</strong> شما اغلب احساسات خود را با دیگران به اشتراک می‌گذارید.
         <div class="options">
             <label><input type="radio" name="q40" value="-3"> کاملاً مخالفم</label>
             <label><input type="radio" name="q40" value="-2"> مخالفم</label>
@@ -540,7 +541,7 @@
     </div>
     
     <div class="question">
-        <strong>سؤال 41:</strong> سؤال شماره 41 (متن دقیق اینجا قرار می‌گیرد)<br>
+        <strong>سؤال 41:</strong> شما مرتب دوستان جدیدی پیدا می‌کنید.
         <div class="options">
             <label><input type="radio" name="q41" value="-3"> کاملاً مخالفم</label>
             <label><input type="radio" name="q41" value="-2"> مخالفم</label>
@@ -553,7 +554,7 @@
     </div>
     
     <div class="question">
-        <strong>سؤال 42:</strong> سؤال شماره 42 (متن دقیق اینجا قرار می‌گیرد)<br>
+        <strong>سؤال 42:</strong> ایده‌های پیچیده و نو بیشتر از ایده‌های ساده و آشنا شما را هیجان‌زده می‌کنند.
         <div class="options">
             <label><input type="radio" name="q42" value="-3"> کاملاً مخالفم</label>
             <label><input type="radio" name="q42" value="-2"> مخالفم</label>
@@ -566,7 +567,7 @@
     </div>
     
     <div class="question">
-        <strong>سؤال 43:</strong> سؤال شماره 43 (متن دقیق اینجا قرار می‌گیرد)<br>
+        <strong>سؤال 43:</strong> معمولاً بیشتر توسط آنچه که از نظر عاطفی قابل درک است متقاعد می‌شوید تا استدلال‌های مبتنی بر حقیقت.
         <div class="options">
             <label><input type="radio" name="q43" value="-3"> کاملاً مخالفم</label>
             <label><input type="radio" name="q43" value="-2"> مخالفم</label>
@@ -579,7 +580,7 @@
     </div>
     
     <div class="question">
-        <strong>سؤال 44:</strong> سؤال شماره 44 (متن دقیق اینجا قرار می‌گیرد)<br>
+        <strong>سؤال 44:</strong> فضاهای زندگی و کاری شما تمیز و مرتب هستند.
         <div class="options">
             <label><input type="radio" name="q44" value="-3"> کاملاً مخالفم</label>
             <label><input type="radio" name="q44" value="-2"> مخالفم</label>
@@ -592,7 +593,7 @@
     </div>
     
     <div class="question">
-        <strong>سؤال 45:</strong> سؤال شماره 45 (متن دقیق اینجا قرار می‌گیرد)<br>
+        <strong>سؤال 45:</strong> شما اغلب آرام هستید حتی تحت فشار خیلی زیاد.
         <div class="options">
             <label><input type="radio" name="q45" value="-3"> کاملاً مخالفم</label>
             <label><input type="radio" name="q45" value="-2"> مخالفم</label>
@@ -605,7 +606,7 @@
     </div>
     
     <div class="question">
-        <strong>سؤال 46:</strong> سؤال شماره 46 (متن دقیق اینجا قرار می‌گیرد)<br>
+        <strong>سؤال 46:</strong> به نظر شما فکر شبکه‌بندی یا تبلیغ کردن خودتان برای غریبه‌ها بسیار ترسناک است.
         <div class="options">
             <label><input type="radio" name="q46" value="-3"> کاملاً مخالفم</label>
             <label><input type="radio" name="q46" value="-2"> مخالفم</label>
@@ -618,7 +619,7 @@
     </div>
     
     <div class="question">
-        <strong>سؤال 47:</strong> سؤال شماره 47 (متن دقیق اینجا قرار می‌گیرد)<br>
+        <strong>سؤال 47:</strong> شما اغلب یک لیست کار برای هر روز دارید.
         <div class="options">
             <label><input type="radio" name="q47" value="-3"> کاملاً مخالفم</label>
             <label><input type="radio" name="q47" value="-2"> مخالفم</label>
@@ -631,7 +632,7 @@
     </div>
     
     <div class="question">
-        <strong>سؤال 48:</strong> سؤال شماره 48 (متن دقیق اینجا قرار می‌گیرد)<br>
+        <strong>سؤال 48:</strong> در زمان ترجیح می‌دهید پروژه نیمه‌کاره را به پایان برسانید تا وارد مأموریت جدیدی شوید.
         <div class="options">
             <label><input type="radio" name="q48" value="-3"> کاملاً مخالفم</label>
             <label><input type="radio" name="q48" value="-2"> مخالفم</label>
@@ -644,7 +645,7 @@
     </div>
     
     <div class="question">
-        <strong>سؤال 49:</strong> سؤال شماره 49 (متن دقیق اینجا قرار می‌گیرد)<br>
+        <strong>سؤال 49:</strong> در برخورد با شرایط زندگی بیشتر به جنبه‌های تحلیلی آن فکر می‌کنید.
         <div class="options">
             <label><input type="radio" name="q49" value="-3"> کاملاً مخالفم</label>
             <label><input type="radio" name="q49" value="-2"> مخالفم</label>
@@ -657,7 +658,7 @@
     </div>
     
     <div class="question">
-        <strong>سؤال 50:</strong> سؤال شماره 50 (متن دقیق اینجا قرار می‌گیرد)<br>
+        <strong>سؤال 50:</strong> شما اغلب احساسات خود را با دیگران به اشتراک می‌گذارید.
         <div class="options">
             <label><input type="radio" name="q50" value="-3"> کاملاً مخالفم</label>
             <label><input type="radio" name="q50" value="-2"> مخالفم</label>
@@ -670,7 +671,7 @@
     </div>
     
     <div class="question">
-        <strong>سؤال 51:</strong> سؤال شماره 51 (متن دقیق اینجا قرار می‌گیرد)<br>
+        <strong>سؤال 51:</strong> شما مرتب دوستان جدیدی پیدا می‌کنید.
         <div class="options">
             <label><input type="radio" name="q51" value="-3"> کاملاً مخالفم</label>
             <label><input type="radio" name="q51" value="-2"> مخالفم</label>
@@ -683,7 +684,7 @@
     </div>
     
     <div class="question">
-        <strong>سؤال 52:</strong> سؤال شماره 52 (متن دقیق اینجا قرار می‌گیرد)<br>
+        <strong>سؤال 52:</strong> ایده‌های پیچیده و نو بیشتر از ایده‌های ساده و آشنا شما را هیجان‌زده می‌کنند.
         <div class="options">
             <label><input type="radio" name="q52" value="-3"> کاملاً مخالفم</label>
             <label><input type="radio" name="q52" value="-2"> مخالفم</label>
@@ -696,7 +697,7 @@
     </div>
     
     <div class="question">
-        <strong>سؤال 53:</strong> سؤال شماره 53 (متن دقیق اینجا قرار می‌گیرد)<br>
+        <strong>سؤال 53:</strong> معمولاً بیشتر توسط آنچه که از نظر عاطفی قابل درک است متقاعد می‌شوید تا استدلال‌های مبتنی بر حقیقت.
         <div class="options">
             <label><input type="radio" name="q53" value="-3"> کاملاً مخالفم</label>
             <label><input type="radio" name="q53" value="-2"> مخالفم</label>
@@ -709,7 +710,7 @@
     </div>
     
     <div class="question">
-        <strong>سؤال 54:</strong> سؤال شماره 54 (متن دقیق اینجا قرار می‌گیرد)<br>
+        <strong>سؤال 54:</strong> فضاهای زندگی و کاری شما تمیز و مرتب هستند.
         <div class="options">
             <label><input type="radio" name="q54" value="-3"> کاملاً مخالفم</label>
             <label><input type="radio" name="q54" value="-2"> مخالفم</label>
@@ -722,7 +723,7 @@
     </div>
     
     <div class="question">
-        <strong>سؤال 55:</strong> سؤال شماره 55 (متن دقیق اینجا قرار می‌گیرد)<br>
+        <strong>سؤال 55:</strong> شما اغلب آرام هستید حتی تحت فشار خیلی زیاد.
         <div class="options">
             <label><input type="radio" name="q55" value="-3"> کاملاً مخالفم</label>
             <label><input type="radio" name="q55" value="-2"> مخالفم</label>
@@ -735,7 +736,7 @@
     </div>
     
     <div class="question">
-        <strong>سؤال 56:</strong> سؤال شماره 56 (متن دقیق اینجا قرار می‌گیرد)<br>
+        <strong>سؤال 56:</strong> به نظر شما فکر شبکه‌بندی یا تبلیغ کردن خودتان برای غریبه‌ها بسیار ترسناک است.
         <div class="options">
             <label><input type="radio" name="q56" value="-3"> کاملاً مخالفم</label>
             <label><input type="radio" name="q56" value="-2"> مخالفم</label>
@@ -748,7 +749,7 @@
     </div>
     
     <div class="question">
-        <strong>سؤال 57:</strong> سؤال شماره 57 (متن دقیق اینجا قرار می‌گیرد)<br>
+        <strong>سؤال 57:</strong> شما اغلب یک لیست کار برای هر روز دارید.
         <div class="options">
             <label><input type="radio" name="q57" value="-3"> کاملاً مخالفم</label>
             <label><input type="radio" name="q57" value="-2"> مخالفم</label>
@@ -761,7 +762,7 @@
     </div>
     
     <div class="question">
-        <strong>سؤال 58:</strong> سؤال شماره 58 (متن دقیق اینجا قرار می‌گیرد)<br>
+        <strong>سؤال 58:</strong> در زمان ترجیح می‌دهید پروژه نیمه‌کاره را به پایان برسانید تا وارد مأموریت جدیدی شوید.
         <div class="options">
             <label><input type="radio" name="q58" value="-3"> کاملاً مخالفم</label>
             <label><input type="radio" name="q58" value="-2"> مخالفم</label>
@@ -774,7 +775,7 @@
     </div>
     
     <div class="question">
-        <strong>سؤال 59:</strong> سؤال شماره 59 (متن دقیق اینجا قرار می‌گیرد)<br>
+        <strong>سؤال 59:</strong> در برخورد با شرایط زندگی بیشتر به جنبه‌های تحلیلی آن فکر می‌کنید.
         <div class="options">
             <label><input type="radio" name="q59" value="-3"> کاملاً مخالفم</label>
             <label><input type="radio" name="q59" value="-2"> مخالفم</label>
@@ -787,7 +788,7 @@
     </div>
     
     <div class="question">
-        <strong>سؤال 60:</strong> سؤال شماره 60 (متن دقیق اینجا قرار می‌گیرد)<br>
+        <strong>سؤال 60:</strong> شما اغلب احساسات خود را با دیگران به اشتراک می‌گذارید.
         <div class="options">
             <label><input type="radio" name="q60" value="-3"> کاملاً مخالفم</label>
             <label><input type="radio" name="q60" value="-2"> مخالفم</label>
@@ -799,28 +800,43 @@
         </div>
     </div>
     
-    <div class="center">
-        <button type="submit">مشاهده نتیجه</button>
-    </div>
+    <button type="submit">مشاهده نتیجه</button>
     </form>
+    <div class="result" id="result"></div>
     <script>
-        document.getElementById("mbtiForm").addEventListener("submit", function(event) {
-            event.preventDefault();
-            const form = event.target;
+        document.getElementById('mbti-form').addEventListener('submit', function(e) {
+            e.preventDefault();
+            let total = 0;
             let unanswered = 0;
             for (let i = 1; i <= 60; i++) {
-                if (!form["q" + i].value) unanswered++;
+                const selected = document.querySelector('input[name="q' + i + '"]:checked');
+                if (selected) {
+                    total += parseInt(selected.value);
+                } else {
+                    unanswered++;
+                }
             }
             if (unanswered > 0) {
-                alert("لطفاً به تمام ۶۰ سوال پاسخ دهید.");
+                alert('لطفاً به تمام سوالات پاسخ دهید.');
                 return;
             }
-            // محاسبه فرضی: نمایش نتیجه ثابت
-            const result = "INFJ";
-            const title = "مشاور";
-            const link = "https://designer-sho.com/shop/types/P45612-INFJ.html";
-            form.innerHTML = `<h2>تیپ شخصیتی شما: ${result} – ${title}</h2>
-                <p><a href="${link}" target="_blank">مشاهده کتابک مخصوص این تیپ</a></p>`;
+
+            let type = "";
+            if (total > 30) type = "ENFP";
+            else if (total > 0) type = "ESFJ";
+            else if (total > -30) type = "ISTP";
+            else type = "INTJ";
+
+            let links = {
+                "ENFP": "https://designer-sho.com/shop/types/P45608-ENFP.html",
+                "ESFJ": "https://designer-sho.com/shop/types/P45623-ESFJ.html",
+                "ISTP": "https://designer-sho.com/shop/types/P45619-ISTP.html",
+                "INTJ": "https://designer-sho.com/shop/types/P45616-INTJ.html"
+            };
+
+            document.getElementById("result").innerHTML =
+                "تیپ شخصیتی شما: <strong>" + type + "</strong><br>" +
+                "<a href='" + links[type] + "' target='_blank'>مشاهده کتابک مخصوص این تیپ</a>";
         });
     </script>
 </body>
